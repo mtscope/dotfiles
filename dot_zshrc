@@ -1,9 +1,10 @@
 export EDITOR=vi
+export GPG_TTY=$(tty)
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(bw completion --shell zsh); compdef _bw bw;"
+eval "$(pyenv init -)"
 
-export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
 
 autoload -Uz vcs_info
