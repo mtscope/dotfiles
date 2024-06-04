@@ -15,6 +15,7 @@ export PATH="$PATH:/$HOME/.dotnet/tools"
 export PATH="$PATH:$MEPATH/bin"
 export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 export PATH="$PATH:/Applications/Proxyman.app/Contents/MacOS/proxyman-cli"
+export NODE_OPTIONS="--no-deprecation"
 export HOMEBREW_NO_ENV_HINTS=true
 
 source $HOME/.env
