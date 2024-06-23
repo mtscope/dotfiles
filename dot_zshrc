@@ -13,6 +13,7 @@ precmd() { vcs_info }
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+setopt completealiases
 source $HOME/.aliases
 
 zstyle ':vcs_info:git:*' formats '%b '

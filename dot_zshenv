@@ -17,6 +17,9 @@ export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 export PATH="$PATH:/Applications/Proxyman.app/Contents/MacOS/proxyman-cli"
 export NODE_OPTIONS="--no-deprecation"
 export HOMEBREW_NO_ENV_HINTS=true
+# export REQUESTS_CA_BUNDLE="$MEPATH/combined.pem"
+# export HTTP_PROXY="http://username:password@192.168.0.69:9099"
+# export HTTPS_PROXY="https://username:password@192.168.0.69:9099"
 
 source $HOME/.env
 source "$HOME/.cargo/env"
