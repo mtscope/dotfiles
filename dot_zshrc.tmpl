@@ -1,0 +1,68 @@
+# Themes.
+ZSH_THEME="gentoo"
+
+# Case-sensitive completion.
+CASE_SENSITIVE="true"
+
+# Weekly auto-update checks.
+zstyle ':omz:update' mode auto
+zstyle ':omz:update' frequency 7
+
+# Disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# Disable marking untracked files under VCS as dirty.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Enable GNU ls In macOS And freeBSD Systems
+zstyle ':omz:lib:theme-and-appearance' gnu-ls yes
+
+# History.
+HIST_STAMPS="yyyy-mm-dd"
+
+# Plugins.
+plugins=(
+    git
+    macos
+    z
+)
+
+# Environment variables.
+source ~/.env
+
+# Oh My Zsh.
+source ~/.oh-my-zsh/oh-my-zsh.sh
+
+# User config.
+source ~/.zsh/setopt.zsh
+
+# Aliases.
+source ~/.aliases
+source ~/.me/private/.aliases_private
+
+# Functions.
+source ~/.functions
+source ~/.me/private/.functions_private
+
+# Private config.
+source ~/.me/private/.privaterc
+
+# dircolors.
+if [ -x "$(command -v dircolors)" ]; then
+    eval "$(dircolors -b ~/.dircolors)"
+fi
+
+# fzf key bindings.
+if [ -x "$(command -v fzf)" ]; then
+    source ~/.fzf/shell/key-bindings.zsh
+    source <(fzf --zsh)
+fi
+
+# PROMPT='%(!.%B%F{red}.%B%F{green}%n@)%m %F{blue}%(!.%1~.%~) ${vcs_info_msg_0_}%F{blue}%(!.#.$)%k%b%f '
+PROMPT="%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
+PROMPT+=' $(git_prompt_info)'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}%1{✗%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
