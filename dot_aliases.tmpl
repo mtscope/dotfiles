@@ -81,9 +81,6 @@ alias doc='cd ~/Documents && ls -lA'
 alias tmp='cd ~/Temporary && ls -lA'
 alias dt="cd ~/Desktop"
 
-# Brewfile
-alias brewfile="brew bundle dump --force"
-
 # Shortcuts
 alias cls='clear'
 alias cat='bat'
@@ -141,7 +138,7 @@ alias sudo='sudo '
 alias week='date +%V'
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew bundle dump --force; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; brewfile'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew bundle dump --force; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; brewfile;'
 
 # Google Chrome
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
@@ -248,6 +245,9 @@ alias czl="chezmoi add ~/Brewfile --template | chezmoi add ~/init.vim --template
 
 # Chezomi Remote->Local
 alias czr="chezmoi update -v"
+
+# Brewfile
+alias brewfile="brew bundle dump --force | czl"
 
 # Azure Data Studio bad cache data
 alias adscache='rm ~/Library/Application\ Support/azuredatastudio/Azure\ Accounts/azureTokenCache_azure_publicCloudin'
