@@ -115,10 +115,12 @@ export PATH="$NVM_DIR/bin:$PATH"
 
 # NodeJs.
 export NODE_OPTIONS="--no-deprecation"
+export NODE_OPTIONS=--openssl-legacy-provider
 
 # Python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export npm_config_python=$PYENV_ROOT/bin
 
 # Xcode.
 export PATH="$HOME/.xcenv/bin:$PATH"
