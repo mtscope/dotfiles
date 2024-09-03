@@ -108,23 +108,26 @@ export PATH="$PATH:$RUSTUPPATH/bin"
 source "$HOME/.cargo/env"
 
 # NVM.
-export NVM_DIR="$HOME/.nvm"
+export NVM_HOME="$HOME/.nvm"
+export NVM_DIR="$NVM_HOME"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-export PATH="$NVM_DIR/bin:$PATH"
+export PATH="$NVM_HOME/bin:$PATH"
 
 # NodeJs.
 export NODE_OPTIONS="--no-deprecation"
-export NODE_OPTIONS=--openssl-legacy-provider
+export NODE_OPTIONS="--openssl-legacy-provider"
 
 # Python
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export npm_config_python=$PYENV_ROOT/bin
+export PYENV_HOME="$HOME/.pyenv"
+export PYENV_ROOT="$PYENV_HOME"
+export PATH="$PYENV_HOME/bin:$PATH"
+export npm_config_python="$PYENV_HOME/bin"
 
 # Xcode.
 export XCENV_DO_NOT_SHIM_LIST="git"
-export PATH="$HOME/.xcenv/bin:$PATH"
+export XCENV_HOME="$HOME/.xcenv"
+export PATH="$XCENV_HOME/bin:$PATH"
 
 # Java.
 export JAVA_HOME="$HOME/.jenv"

@@ -1,0 +1,11 @@
+# Create persistent volume for your data
+docker volume create gitlab-runner-config
+docker volume create prometheus-data
+docker volume create grafana-data
+docker volume create redis-data
+docker volume create mssql-data
+docker volume create postgres-data
+docker volume create rabbitmq-data
+
+# Create local network
+docker network create local-network
