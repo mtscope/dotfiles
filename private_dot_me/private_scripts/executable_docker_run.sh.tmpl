@@ -1,0 +1,75 @@
+# Start Gitlab-Runner container
+docker run -d \
+    --name gitlab-runner \
+    --restart always \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v gitlab-runner-config:/etc/gitlab-runner \
+    -e TZ=UTC \
+    gitlab/gitlab-runner:latest
+
+# Start Prometheus container
+docker run -d \
+    --name prometheus \
+    --restart always \
+    -p 9090:9090 \
+    -v /Users/bradley/.prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+    -v prometheus-data:/prometheus \
+    --network local-network \
+    prom/prometheus:latest
+
+# Start Grafana container
+docker run -d \
+    --name grafana \
+    --restart always \
+    -p 9292:9292 \
+    -v grafana-data:/var/lib/grafana \
+    --network local-network \
+    -e "GF_INSTALL_PLUGINS=grafana-clock-panel, grafana-simple-json-datasource" \
+    grafana/grafana-oss:latest
+
+# Start Redis container
+docker run -d \
+    --name redis \
+    --restart always \
+    -p 6379:6379 \
+    -v redis-data:/data \
+    --network local-network \
+    redis:alpine
+
+# Start Azure SQL container
+docker run -d \
+    --name mssql \
+    --restart always \
+    -p 1433:1433 \
+    # -v mssql-data:/mssql \
+    --network local-network \
+    -e "ACCEPT_EULA=1" \
+    -e "MSSQL_PID=Developer" \
+    -e MSSQL_SA_PASSWORD="{{ (bitwarden "item" MSSQL).login.password }}" \
+    -e MSSQL_USER="{{ (bitwarden "item" MSSQL).login.username }}" \
+    mcr.microsoft.com/azure-sql-edge
+
+# Start Postgres container
+docker run -d \
+    --name postgres \
+    --hostname postgres \
+    --restart always \
+    -p 5432:5432 \
+    -v postgres-data:/postgres \
+    --network local-network \
+    -e POSTGRES_USER="{{ (bitwarden "item" Postgres).login.username }}" \
+    -e POSTGRES_PASSWORD="{{ (bitwarden "item" Postgres).login.password }}" \
+    postgres:alpine
+
+# Start RabbitMQ container
+docker run -d \
+    --name rabbitmq \
+    --restart always \
+    -p 5672:5672 \
+    -p 15672:15672 \
+    -v rabbitmq-data:/rabbitmq \
+    --network local-network \
+    -e RABBITMQ_DEFAULT_VHOST=rabbitmq_vhost \
+    -e RABBITMQ_DEFAULT_USER="{{ (bitwarden "item" RabbitMQ).login.username }}" \
+    -e RABBITMQ_DEFAULT_PASS="{{ (bitwarden "item" RabbitMQ).login.password }}" \
+    rabbitmq:management-alpine
