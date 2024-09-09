@@ -85,20 +85,20 @@ scrape_configs:
           my: label
           your: label
 
-  - job_name: 'postgres'
-      static_configs:
-        - targets:
-          - 127.0.0.1:5432
-      metrics_path: /probe
-      params:
-        auth_module: [foo]
-      relabel_configs:
-        - source_labels: [__address__]
-          target_label: __param_target
-        - source_labels: [__param_target]
-          target_label: instance
-        - target_label: __address__
-          replacement: 127.0.0.1:9116  # The postgres exporter's real hostname:port.
+  # - job_name: 'postgres'
+  #     static_configs:
+  #       - targets:
+  #         - 127.0.0.1:5432
+  #     metrics_path: /probe
+  #     params:
+  #       auth_module: [foo]
+  #     relabel_configs:
+  #       - source_labels: [__address__]
+  #         target_label: __param_target
+  #       - source_labels: [__param_target]
+  #         target_label: instance
+  #       - target_label: __address__
+  #         replacement: 127.0.0.1:9116  # The postgres exporter's real hostname:port.
 
 #     relabel_configs:
 #       - source_labels: [job, __meta_dns_name]
@@ -338,9 +338,9 @@ scrape_configs:
 #       - authorization:
 #           credentials: abcdef
 
-  - job_name: docker
-    docker_sd_configs:
-      - host: unix:///var/run/docker.sock
+  # - job_name: docker
+  #   docker_sd_configs:
+  #     - host: unix:///var/run/docker.sock
 
 #   - job_name: dockerswarm
 #     dockerswarm_sd_configs:

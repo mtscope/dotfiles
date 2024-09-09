@@ -107,13 +107,6 @@ export RUSTUPPATH="/opt/homebrew/opt/rustup"
 export PATH="$PATH:$RUSTUPPATH/bin"
 source "$HOME/.cargo/env"
 
-# NVM.
-export NVM_HOME="$HOME/.nvm"
-export NVM_DIR="$NVM_HOME"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-export PATH="$NVM_HOME/bin:$PATH"
-
 # NodeJs.
 export NODE_OPTIONS="--no-deprecation"
 export NODE_OPTIONS="--openssl-legacy-provider"
@@ -140,3 +133,10 @@ export PATH="$DOTNET_HOME/tools:$PATH"
 # Volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+# NVM.
+export NVM_HOME="$HOME/.nvm"
+export NVM_DIR="$NVM_HOME"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+export PATH="$NVM_HOME/bin:$PATH"
