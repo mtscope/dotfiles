@@ -5,7 +5,10 @@
 !.alfred/preferences/workflows
 .alfred/
 .alfred/**
+.aspnet/DataProtection-Keys/
 .aspnet/DataProtection-Keys/**
+.aspnet/DataProtection-Keys/https/
+.aspnet/DataProtection-Keys/https/**
 .azcopy/
 .azcopy/**
 .azure/
@@ -75,6 +78,8 @@
 !.rustup/settings.toml
 .rustup/
 .rustup/**
+.ServiceHub/logs/
+.ServiceHub/logs/**
 .shada
 *.shada
 **.shada
@@ -84,6 +89,8 @@
 .ssh/**
 .swiftpm/
 .swiftpm/**
+.terminfo/
+.terminfo/**
 .templateengine/
 .templateengine/**
 .Trash/
