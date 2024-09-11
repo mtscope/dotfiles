@@ -7,8 +7,8 @@
 .alfred/**
 .aspnet/DataProtection-Keys/
 .aspnet/DataProtection-Keys/**
-.aspnet/DataProtection-Keys/https/
-.aspnet/DataProtection-Keys/https/**
+.aspnet/dev-certs/https/
+.aspnet/dev-certs/https/**
 .azcopy/
 .azcopy/**
 .azure/
