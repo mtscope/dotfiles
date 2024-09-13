@@ -4,9 +4,8 @@ eval "$(jenv init -)"
 eval "$(pyenv init -)"
 eval "$(xcenv init -)"
 
-zsh-autosuggestions=/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-if [ -e "$autosuggestions" ]; then
-    source $autosuggestions
+if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 setopt completealiases
