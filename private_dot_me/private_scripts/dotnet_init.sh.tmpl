@@ -1,0 +1,34 @@
+#check if you have openssl installed
+which openssl
+
+# if not uncomment this and install it
+# brew install openssl
+
+# create the root local certs (ideally these are from keyvault and we all have the same root, but due to time, going this route)
+# yes that extra pass: has to be in front but it doesn't actually count as part of the password :)
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt -config localhost.conf -passin pass:TestQa2!
+# export them
+sudo openssl pkcs12 -export -out localhost.pfx -inkey localhost.key -in localhost.crt
+
+
+# stuck... can't get keychain to import them it's some combo platter of the below
+sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" localhost.crt
+sudo security authorizationdb write com.apple.trust-settings.admin allow ; security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" localhost.crt ; security authorizationdb remove com.apple.trust-settings.admin
+sudo security authorizationdb write com.apple.trust-settings.admin allow ; security add-trusted-cert -d -r trustAsRoot -p ssl -k "/Library/Keychains/System.keychain" /etc/ssl/ldap0.pem ; security authorizationdb remove com.apple.trust-settings.admin
+
+# export to create the combo pem for nginx, haproxy whatever floats our boat later
+sudo openssl pkcs12 -in localhost.pfx -out localhost.pem -nodes
+openssl pkcs12 -in localhost.pfx -out localhost.nokey.pem -nokeys
+openssl pkcs12 -in localhost.pfx -out localhost.withkey.pem
+cat localhost.nokey.pem localhost.key > localhost.combo.pem
+
+# check if it see's stuff
+dotnet dev-certs https --check
+
+# clear olds ones
+# attempt to add new onet... which works if the above command's can get the root dude actually added to Mac KeyChain Access
+dotnet dev-certs https --clean --import localhost.combo.pem --password TestQa2!
+dotnet dev-certs https --clean --import localhost.pfx --password TestQa2!
+
+# if success then hey let's trust it!
+dotnet dev-certs https --check --trust
