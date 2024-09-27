@@ -1,3 +1,14 @@
+minica --domains 'localhost,rxlightning-local.com,*.rxlightning-local.com' --ip-addresses 127.0.0.1
+
+mv minica.pem localhost/* $HOME/.dotnet/certificates
+
+touch $HOME/.dotnet/certificates/firefox/policies.json
+
+#  (Join-Path $env:UserProfile ".aspnet/https/localhost.pfx")
+dotnet dev-certs https --clean --import $HOME/.dotnet/certificates -p <PASSWORD>
+dotnet dev-certs https --trust
+
+
 #check if you have openssl installed
 which openssl
 
@@ -32,3 +43,10 @@ dotnet dev-certs https --clean --import localhost.pfx --password TestQa2!
 
 # if success then hey let's trust it!
 dotnet dev-certs https --check --trust
+
+
+dotnet dev-certs https
+
+dotnet dev-certs https --trust
+
+dotnet dev-certs https --format pem -ep "$HOME/.dotnet/https/localhost.pem" --no-password
