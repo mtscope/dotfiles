@@ -241,7 +241,7 @@ alias reload="exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}'
 
 # Chezomi Local->Remote
-alias czl="chezmoi add ~/Brewfile --template | chezmoi add ~/init.vim --template | chezmoi add ~/.* --template"
+alias czl="chezmoi add ~/Brewfile --template | chezmoi add ~/init.vim --template | chezmoi add ~/.* --template --quiet"
 
 # Chezomi Remote->Local
 alias czr="chezmoi update -v"
