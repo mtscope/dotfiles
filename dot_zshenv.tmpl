@@ -84,6 +84,8 @@ export MEPATH="$HOME/.me"
 export PATH="$PATH:$MEPATH"
 source $HOME/.env
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # proxy
 # export HTTP_PROXY="http://username:password@192.168.0.69:9099"
 # export HTTPS_PROXY="https://username:password@192.168.0.69:9099"
@@ -127,15 +129,17 @@ export PATH="$JAVA_HOME/bin:$PATH"
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#net-sdk-and-cli-environment-variables
 
 # default install
-# export DOTNET_ROOT="/usr/local/share/dotnet"
-# export DOTNET_ROOT_X64="/usr/local/share/dotnet/x64/dotnet/"
+export DOTNET_ROOT="/usr/local/share/dotnet"
+export DOTNET_ROOT_X64="/usr/local/share/dotnet/x64/dotnet/"
 
 # brew install:  https://github.com/isen-ng/homebrew-dotnet-sdk-versions
 # brew tap isen-ng/dotnet-sdk-versions
 # brew install --cask dotnet-sdk8-0-400
 # brew uninstall --zap --cask dotnet-sdk8-0-400
-export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
-export DOTNET_ROOT_X64="/opt/homebrew/opt/dotnet/libexec"
+# export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+# export DOTNET_ROOT_X64="/opt/homebrew/opt/dotnet/libexec"
+
+export PATH="$DOTNET_ROOT:$PATH"
 
 export COREHOST_TRACE_VERBOSITY=4
 export COREHOST_TRACE=0
