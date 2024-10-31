@@ -14,3 +14,5 @@ CMakeUserPresets.json
 **.pfx
 *.cert
 **.cert
+/dot_terraform.d/checkpoint_signature.tmpl
+/dot_terraform.d/checkpoint_cache.tmpl
