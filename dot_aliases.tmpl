@@ -138,7 +138,7 @@ alias sudo='sudo '
 alias week='date +%V'
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew bundle dump --force; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; brewfile;'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew bundle dump --force; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; mas upgrade;'
 
 # Google Chrome
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
@@ -235,7 +235,7 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # Reload the shell (i.e. invoke as a login shell)
-alias reload="exec ${SHELL} -l"
+alias reload="exec ${SHELL} -l; sketchybar --reload"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
