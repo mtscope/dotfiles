@@ -25,8 +25,9 @@
 .cargo/
 .cargo/**
 .CFUserTextEncoding
-.config/.mono/certs/Trust/**
+.config/.chezmoi/
 .config/.chezmoi/**
+.config/.mono/certs/Trust/**
 .config/github-copilot/**
 .config/glab-cli/recover/**
 .config/iterm2/**
