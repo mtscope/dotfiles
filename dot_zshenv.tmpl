@@ -27,6 +27,11 @@ fi
 
 export GPG_TTY=$(tty)
 
+if [[ -z $GPG_LAUNCH_AGENT ]]; then
+    export GPG_LAUNCH_AGENT=$(tty)
+    export GPG_TTY=$(tty)
+fi
+
 # Default Pager.
 export PAGER="less"
 
@@ -129,15 +134,16 @@ export PATH="$JAVA_HOME/bin:$PATH"
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#net-sdk-and-cli-environment-variables
 
 # default install
-export DOTNET_ROOT="/usr/local/share/dotnet"
-export DOTNET_ROOT_X64="/usr/local/share/dotnet/x64/dotnet/"
+# export DOTNET_ROOT="/usr/local/share/dotnet"
+# export DOTNET_ROOT_X64="/usr/local/share/dotnet/x64/dotnet/"
 
 # brew install:  https://github.com/isen-ng/homebrew-dotnet-sdk-versions
 # brew tap isen-ng/dotnet-sdk-versions
-# brew install --cask dotnet-sdk8-0-400
-# brew uninstall --zap --cask dotnet-sdk8-0-400
-# export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
-# export DOTNET_ROOT_X64="/opt/homebrew/opt/dotnet/libexec"
+# brew install --cask dotnet-sdk9
+# brew install --cask dotnet-sdk9-0-100
+# brew uninstall --zap --cask dotnet-sdk9-0-100
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/"
+export DOTNET_ROOT_X64="/opt/homebrew/opt/dotnet/"
 
 export PATH="$DOTNET_ROOT:$PATH"
 

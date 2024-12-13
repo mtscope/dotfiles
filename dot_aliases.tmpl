@@ -151,7 +151,7 @@ alias firefox='/Applications/Firefox.app/Contents/MacOS/firefox'
 alias safari='/Applications/Safari.app/Contents/MacOS/Safari'
 
 # IP addresses
-alias ip="dig TXT +short o-o.myaddr.l.google.com @ns1.google.com; dig +short txt ch whoami.cloudflare @1.0.0.1; dig -6 TXT +short o-o.myaddr.l.google.com @ns1.google.com; host myip.opendns.com resolver1.opendns.com;"
+alias ip='doggo +short TXT ch whoami.cloudflare @1.0.0.1; echo ""; echo ""; doggo +short A myip.opendns.com; echo ""; echo ""; doggo +short TXT o-o.myaddr.l.google.com @ns1.google.com; echo ""; echo "";'
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 alias ipblock="sudo pfctl -t badguys -T add 0.0.0.0"
@@ -235,7 +235,8 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # Reload the shell (i.e. invoke as a login shell)
-alias reload="sketchybar --reload; aerospace reload-config; exec ${SHELL} -l;"
+# alias reload="sketchybar --reload || true; aerospace reload-config || true; exec ${SHELL} -l;"
+alias reload="aerospace reload-config; exec ${SHELL} -l;"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
@@ -264,6 +265,8 @@ alias gpg_public_rxlightning="gpg --export brad.allen@rxlightning.com > gpg_pub_
 alias gpg_private_me="gpg --export-secret-keys me@bradallen.me > gpg_private_me.asc"
 alias gpg_private_emptyscope="gpg --export-secret-keys brad.allen@emptyscope.com > gpg_private_emptyscope.asc"
 alias gpg_private_rxlightning="gpg --export-secret-keys brad.allen@rxlightning.com > gpg_private_rxlightning.asc"
+
+alias gpg_mail='gpg_mail() { gpg --auto-key-locate keyserver --locate-keys "$1"; }; gpg_mail'
 
 # Dotnet
 # https://github.com/isen-ng/homebrew-dotnet-sdk-versions
