@@ -47,8 +47,6 @@
 .env
 .git-credentials
 !.gnupg/*.conf
-.gnupg/
-.gnupg/**
 .IdentityService/
 .IdentityService/**
 .jenv/
