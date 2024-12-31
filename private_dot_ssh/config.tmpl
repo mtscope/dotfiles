@@ -1,0 +1,51 @@
+Host rxlightning-gitlab.com
+  HostName gitlab.com
+    User git
+      IdentityFile ~/.ssh/rxlightning_id_ed25519
+      PreferredAuthentications publickey
+      IdentitiesOnly yes
+      AddKeysToAgent yes
+
+Host emptyscope-gitlab.com
+  HostName gitlab.com
+    User git
+      IdentityFile ~/.ssh/emptyscope_id_ed25519
+      PreferredAuthentications publickey
+      IdentitiesOnly yes
+      AddKeysToAgent yes
+
+Host me-gitlab.com
+  HostName gitlab.com
+    User git
+      IdentityFile ~/.ssh/id_ed25519
+      PreferredAuthentications publickey
+      IdentitiesOnly yes
+      AddKeysToAgent yes
+
+Host rxlightning-github.com
+  HostName github.com
+    User git
+      IdentityFile ~/.ssh/rxlightning_id_ed25519
+      PreferredAuthentications publickey
+      IdentitiesOnly yes
+      AddKeysToAgent yes
+
+Host emptyscope-github.com
+  HostName github.com
+    User git
+      IdentityFile ~/.ssh/emptyscope_id_ed25519
+      PreferredAuthentications publickey
+      IdentitiesOnly yes
+      AddKeysToAgent yes
+
+Host me-github.com
+  HostName github.com
+    User git
+      IdentityFile ~/.ssh/id_ed25519
+      PreferredAuthentications publickey
+      IdentitiesOnly yes
+      AddKeysToAgent yes
+
+Host *
+IdentitiesOnly yes
+PreferredAuthentications publickey

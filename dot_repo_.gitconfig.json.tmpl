@@ -1,0 +1,757 @@
+{
+  "user.name": [
+    "Brad Allen"
+  ],
+  "user.email": [
+    "me@bradallen.me"
+  ],
+  "user.signingkey": [
+    "3D4B7FFEEE4CB02075BEC52447DF1B5671197CED"
+  ],
+  "includeif.gitdir:~/src/Me/.path": [
+    "~/.me/git/.gitconfig_me"
+  ],
+  "includeif.gitdir:~/src/Emptyscope/.path": [
+    "~/.me/git/.gitconfig_emptyscope"
+  ],
+  "includeif.gitdir:~/src/RxLightning/.path": [
+    "~/.me/git/.gitconfig_rxlightning"
+  ],
+  "core.editor": [
+    "code"
+  ],
+  "core.autocrlf": [
+    "false"
+  ],
+  "core.excludesfile": [
+    "/Users/bradley/.me/git/.gitignore_global"
+  ],
+  "pull.ff": [
+    "only"
+  ],
+  "push.default": [
+    "current"
+  ],
+  "push.rebase": [
+    "true"
+  ],
+  "push.followtags": [
+    "false"
+  ],
+  "push.autosetupremote": [
+    "true"
+  ],
+  "merge.tool": [
+    "code"
+  ],
+  "commit.gpgsign": [
+    "true"
+  ],
+  "commit.template": [
+    "~/.me/git/.git-commit-template.txt"
+  ],
+  "apply.ignorewhitespace": [
+    "change"
+  ],
+  "apply.whitespace": [
+    "nowarn"
+  ],
+  "branch.autosetuprebase": [
+    "always"
+  ],
+  "color.interactive": [
+    "always"
+  ],
+  "color.ui": [
+    "always"
+  ],
+  "color.diff": [
+    "always"
+  ],
+  "color.status": [
+    "always"
+  ],
+  "color.branch": [
+    "always"
+  ],
+  "color.diff.meta": [
+    "yellow bold"
+  ],
+  "color.diff.commit": [
+    "cyan bold"
+  ],
+  "color.diff.frag": [
+    "magenta bold"
+  ],
+  "color.diff.old": [
+    "red bold"
+  ],
+  "color.diff.new": [
+    "green bold"
+  ],
+  "color.diff.whitespace": [
+    "red reverse"
+  ],
+  "color.diff-highlight.oldnormal": [
+    "red bold"
+  ],
+  "color.diff-highlight.oldhighlight": [
+    "red bold 52"
+  ],
+  "color.diff-highlight.newnormal": [
+    "green bold"
+  ],
+  "color.diff-highlight.newhighlight": [
+    "green bold 22"
+  ],
+  "color.branch.current": [
+    "yellow reverse"
+  ],
+  "color.branch.local": [
+    "yellow"
+  ],
+  "color.branch.remote": [
+    "green"
+  ],
+  "color.status.added": [
+    "green"
+  ],
+  "color.status.changed": [
+    "yellow"
+  ],
+  "color.status.untracked": [
+    "red"
+  ],
+  "credential.helper": [
+    "cache"
+  ],
+  "diff.tool": [
+    "default-difftool"
+  ],
+  "difftool.default-difftool.cmd": [
+    "code --wait --diff $LOCAL $REMOTE"
+  ],
+  "filter.lfs.required": [
+    "true"
+  ],
+  "filter.lfs.clean": [
+    "git-lfs clean -- %f"
+  ],
+  "filter.lfs.smudge": [
+    "git-lfs smudge -- %f"
+  ],
+  "filter.lfs.process": [
+    "git-lfs filter-process"
+  ],
+  "gpg.program": [
+    "/opt/homebrew/bin/gpg"
+  ],
+  "gpg.format": [
+    "openpgp"
+  ],
+  "mergetool.code.cmd": [
+    "code --wait --merge $REMOTE $LOCAL $BASE $MERGED"
+  ],
+  "mergetool.code.keepbackup": [
+    "true"
+  ],
+  "pager.diff": [
+    "diff-so-fancy | less --tabs=4 -RFX"
+  ],
+  "pager.show": [
+    "diff-so-fancy | less --tabs=4 -RFX"
+  ],
+  "alias.root": [
+    "rev-parse --show-toplevel"
+  ],
+  "alias.out": [
+    "log --branches --not --remotes"
+  ],
+  "alias.in": [
+    "pull --dry-run"
+  ],
+  "alias.co": [
+    "checkout"
+  ],
+  "alias.coc": [
+    "checkout ."
+  ],
+  "alias.cob": [
+    "checkout -b"
+  ],
+  "alias.cobf": [
+    "!f() { git brd $1; git cob $1; }; f"
+  ],
+  "alias.col": [
+    "checkout HEAD~1"
+  ],
+  "alias.cotc": [
+    "!git sttc | xargs git checkout"
+  ],
+  "alias.como": [
+    "!git stmo | xargs git checkout"
+  ],
+  "alias.ours": [
+    "checkout --ours"
+  ],
+  "alias.theirs": [
+    "checkout --theirs"
+  ],
+  "alias.aours": [
+    "!f() { (git reset $* >/dev/null); git ours $* && git add $*; }; f"
+  ],
+  "alias.atheirs": [
+    "!f() { (git reset $* >/dev/null); git theirs $* && git add $*; }; f"
+  ],
+  "alias.ci": [
+    "commit"
+  ],
+  "alias.cif": [
+    "!f() { vim $1; git ci $1; }; f"
+  ],
+  "alias.cie": [
+    "commit --allow-empty"
+  ],
+  "alias.cia": [
+    "commit -a"
+  ],
+  "alias.cam": [
+    "commit --amend"
+  ],
+  "alias.cama": [
+    "commit --amend -a"
+  ],
+  "alias.cl": [
+    "clean"
+  ],
+  "alias.cldf": [
+    "clean -df"
+  ],
+  "alias.res": [
+    "reset"
+  ],
+  "alias.resa": [
+    "reset HEAD"
+  ],
+  "alias.resh": [
+    "!f() { git stash && git reset --hard $@; }; f"
+  ],
+  "alias.reshu": [
+    "!git resh `git upstream`"
+  ],
+  "alias.reshfu": [
+    "!git fetch `git upstream-remote` && git resh `git upstream`"
+  ],
+  "alias.reshh": [
+    "!git stash && git reset --hard HEAD"
+  ],
+  "alias.cundo": [
+    "reset HEAD^1"
+  ],
+  "alias.cundoh": [
+    "!git stash && git reset HEAD^1 --hard"
+  ],
+  "alias.unstage": [
+    "reset HEAD"
+  ],
+  "alias.tags": [
+    "tag -l"
+  ],
+  "alias.pg": [
+    "diff"
+  ],
+  "alias.pgs": [
+    "diff --staged"
+  ],
+  "alias.pa": [
+    "apply"
+  ],
+  "alias.s": [
+    "show --color"
+  ],
+  "alias.sw": [
+    "show --color --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'"
+  ],
+  "alias.sf": [
+    "show --color -C --stat"
+  ],
+  "alias.d": [
+    "diff --color"
+  ],
+  "alias.dw": [
+    "diff --color --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'"
+  ],
+  "alias.du": [
+    "!git d `git upstream` $@"
+  ],
+  "alias.ds": [
+    "!git d --staged $@"
+  ],
+  "alias.dsf": [
+    "!git d --staged --stat $@",
+    "!git d --staged -C --stat $@"
+  ],
+  "alias.dsw": [
+    "!git d --staged --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+' $@"
+  ],
+  "alias.df": [
+    "!git d -C --stat $@"
+  ],
+  "alias.dc": [
+    "!f() { HASH=$1; shift 1; git diff --cc $HASH $HASH^1 $HASH^2 $@; }; f"
+  ],
+  "alias.lp": [
+    "log -m --color -p"
+  ],
+  "alias.lf": [
+    "log -m --color -C --stat"
+  ],
+  "alias.lg": [
+    "log -m --simplify-merges --color --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%ar) %Cblue%an <%ae>%Creset' --abbrev-commit --date=relative"
+  ],
+  "alias.lgu": [
+    "!git lg `git upstream` $@",
+    "!git lg --no-merges `git upstream` $@"
+  ],
+  "alias.lg2": [
+    "!source ~/.githelpers && pretty_git_log"
+  ],
+  "alias.lgp": [
+    "!git lg -p $@"
+  ],
+  "alias.lgpw": [
+    "!git lg -p --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+' $@"
+  ],
+  "alias.lgf": [
+    "!git lg -C --stat $@"
+  ],
+  "alias.l": [
+    "log -m --simplify-merges --color --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %Cblue%an <%ae>%Creset' --abbrev-commit --date=relative"
+  ],
+  "alias.lc": [
+    "!f() { git log $* | grep '^commit ' | cut -f 2 -d ' '; }; f"
+  ],
+  "alias.lgup": [
+    "!git lg --no-merges -p `git upstream` $@"
+  ],
+  "alias.f": [
+    "fetch"
+  ],
+  "alias.fu": [
+    "!git fetch `git upstream-remote` $@"
+  ],
+  "alias.fa": [
+    "fetch --all"
+  ],
+  "alias.fo": [
+    "fetch origin"
+  ],
+  "alias.m": [
+    "merge --no-edit"
+  ],
+  "alias.unm": [
+    "reset --merge"
+  ],
+  "alias.ps": [
+    "push"
+  ],
+  "alias.psu": [
+    "push -u"
+  ],
+  "alias.psn": [
+    "!f() { git ps $1 `git brc`; }; f"
+  ],
+  "alias.psnf": [
+    "!f() { git psf $1 `git brc`; }; f"
+  ],
+  "alias.psfun": [
+    "!f() { git psu -f $1 `git brc`; }; f"
+  ],
+  "alias.psun": [
+    "!f() { git psu $1 `git brc`; }; f"
+  ],
+  "alias.pso": [
+    "push origin"
+  ],
+  "alias.psoun": [
+    "!git psu origin `git brc` $@"
+  ],
+  "alias.psf": [
+    "push -f"
+  ],
+  "alias.psuf": [
+    "push -uf"
+  ],
+  "alias.pssm": [
+    "push --recurse-submodules=on-demand"
+  ],
+  "alias.psremoveallbranches": [
+    "!f() { git push $1 `git brar $1 | grep -v master | xargs -I {} echo :{}`; }; f"
+  ],
+  "alias.pl": [
+    "pull"
+  ],
+  "alias.plo": [
+    "pull origin"
+  ],
+  "alias.plom": [
+    "pull origin master"
+  ],
+  "alias.plr": [
+    "!git sh && git pull --rebase && git shp $@"
+  ],
+  "alias.st": [
+    "status"
+  ],
+  "alias.sttc": [
+    "!git status | grep typechange | awk '{print $2}' $@"
+  ],
+  "alias.stmo": [
+    "!git status | grep modified | awk '{print $2}' $@"
+  ],
+  "alias.a": [
+    "add --all"
+  ],
+  "alias.af": [
+    "add --all -f"
+  ],
+  "alias.ap": [
+    "add -p"
+  ],
+  "alias.resolve-unmerged": [
+    "!git add `git unmerged` $@"
+  ],
+  "alias.add-untracked": [
+    "!git add `git untracked` $@"
+  ],
+  "alias.as": [
+    "!git diff -w --no-color | git apply --cached $@"
+  ],
+  "alias.rs": [
+    "!(git resa && git as && git co . && git resa) &>/dev/null"
+  ],
+  "alias.rmf": [
+    "rm -rf"
+  ],
+  "alias.rmtheirs": [
+    "!git rm `git removedbytheirs` $@"
+  ],
+  "alias.rmours": [
+    "!git rm `git removedbyours` $@"
+  ],
+  "alias.unmerged": [
+    "!git ls-files --unmerged | cut -f2 | uniq"
+  ],
+  "alias.theirsunmerged": [
+    "!git ls-files --unmerged | grep \"\\\\s3\\\\s\" | cut -f2 | uniq"
+  ],
+  "alias.oursunmerged": [
+    "!git ls-files --unmerged | grep \"\\\\s2\\\\s\" | cut -f2 | uniq"
+  ],
+  "alias.removedbyours": [
+    "!bash -c 'source ~/.githelpers && diff_array \"`git theirsunmerged`\" \"`git oursunmerged`\"'"
+  ],
+  "alias.removedbytheirs": [
+    "!bash -c 'source ~/.githelpers && diff_array \"`git oursunmerged`\" \"`git theirsunmerged`\"'"
+  ],
+  "alias.untracked": [
+    "ls-files --other --exclude-standard"
+  ],
+  "alias.staged": [
+    "ls-files --staged"
+  ],
+  "alias.modified": [
+    "ls-files --modified"
+  ],
+  "alias.deleted": [
+    "ls-files --deleted"
+  ],
+  "alias.gitignored": [
+    "ls-files -o -i --exclude-standard"
+  ],
+  "alias.sig": [
+    "!git ls-files -v | grep ^[[:lower:]]"
+  ],
+  "alias.ig": [
+    "update-index --assume-unchanged"
+  ],
+  "alias.uig": [
+    "update-index --no-assume-unchanged"
+  ],
+  "alias.ignore": [
+    "update-index --assume-unchanged"
+  ],
+  "alias.ignored": [
+    "!git sig $@"
+  ],
+  "alias.gitignore-untracked": [
+    "!git gitignore `git untracked` $@"
+  ],
+  "alias.ig-untracked": [
+    "!git ignore `git untracked` $@"
+  ],
+  "alias.gitignore": [
+    "!cd `git root` && touch .gitignore"
+  ],
+  "alias.head": [
+    "!git l -1 $@"
+  ],
+  "alias.h": [
+    "!git head $@"
+  ],
+  "alias.hp": [
+    "!source ~/.githelpers && show_git_head"
+  ],
+  "alias.r": [
+    "!git l -20 $@"
+  ],
+  "alias.ra": [
+    "!git r --all $@"
+  ],
+  "alias.sh": [
+    "stash"
+  ],
+  "alias.shp": [
+    "stash pop"
+  ],
+  "alias.shl": [
+    "stash list"
+  ],
+  "alias.shd": [
+    "stash drop"
+  ],
+  "alias.shc": [
+    "stash clear"
+  ],
+  "alias.sha": [
+    "stash apply"
+  ],
+  "alias.chp": [
+    "cherry-pick"
+  ],
+  "alias.chpc": [
+    "cherry-pick --continue"
+  ],
+  "alias.chpq": [
+    "cherry-pick --quit"
+  ],
+  "alias.chpa": [
+    "cherry-pick --abort"
+  ],
+  "alias.rv": [
+    "revert"
+  ],
+  "alias.rvc": [
+    "revert --continue"
+  ],
+  "alias.rva": [
+    "revert --abort"
+  ],
+  "alias.am3": [
+    "am -3"
+  ],
+  "alias.amr": [
+    "am --resolved"
+  ],
+  "alias.amc": [
+    "am --continue"
+  ],
+  "alias.ama": [
+    "am --abort"
+  ],
+  "alias.ams": [
+    "am --skip"
+  ],
+  "alias.fm": [
+    "format-patch"
+  ],
+  "alias.rb": [
+    "rebase"
+  ],
+  "alias.rbad": [
+    "rebase --committer-date-is-author-date"
+  ],
+  "alias.rbi": [
+    "rebase -i"
+  ],
+  "alias.rbtc": [
+    "!git theirs `git unmerged` || git resolve-unmerged && (git rbc || git rbs)"
+  ],
+  "alias.rboc": [
+    "!git ours `git unmerged` || git reset `git unmerged` && git a . && (git rbc || git rbs)"
+  ],
+  "alias.rbc": [
+    "rebase --continue"
+  ],
+  "alias.rba": [
+    "rebase --abort"
+  ],
+  "alias.rbs": [
+    "rebase --skip"
+  ],
+  "alias.squash": [
+    "!f() { NL=$1; GIT_EDITOR=\"sed -i '2,$NL s/pick/squash/;/# This is the 2nd commit message:/,$ {d}'\"; git rebase -i HEAD~$NL; }; f"
+  ],
+  "alias.sq": [
+    "!git squash $1"
+  ],
+  "alias.sqpsf": [
+    "!git squash $1 && git psf"
+  ],
+  "alias.bs": [
+    "bisect"
+  ],
+  "alias.bsr": [
+    "bisect reset"
+  ],
+  "alias.bsb": [
+    "bisect bad"
+  ],
+  "alias.bsg": [
+    "bisect good"
+  ],
+  "alias.mt": [
+    "mergetool"
+  ],
+  "alias.vm": [
+    "!vim `git unmerged`"
+  ],
+  "alias.vmo": [
+    "!vim `git modified`"
+  ],
+  "alias.vt": [
+    "!vim `git untracked`"
+  ],
+  "alias.vim-unmerged": [
+    "!git vm"
+  ],
+  "alias.current": [
+    "rev-parse --abbrev-ref HEAD"
+  ],
+  "alias.br": [
+    "branch"
+  ],
+  "alias.brc": [
+    "rev-parse --abbrev-ref HEAD"
+  ],
+  "alias.brt": [
+    "branch --track"
+  ],
+  "alias.brup": [
+    "branch --set-upstream"
+  ],
+  "alias.bra": [
+    "!git branch -a | less -FiRS"
+  ],
+  "alias.brrecent": [
+    "!git for-each-ref --sort=-committerdate refs/heads/"
+  ],
+  "alias.brar": [
+    "!f() { git bra | grep remotes/$1/ | cut -f 3 -d '/'; }; f"
+  ],
+  "alias.brd": [
+    "branch -D"
+  ],
+  "alias.brco": [
+    "branch --contains"
+  ],
+  "alias.brcommits": [
+    "!f() { git lc --branches=$1* }; f"
+  ],
+  "alias.brdiff": [
+    "!source ~/.githelpers && diff_branches"
+  ],
+  "alias.brfdiff": [
+    "!source ~/.githelpers && diff_branches_show_files"
+  ],
+  "alias.rem": [
+    "remote"
+  ],
+  "alias.rema": [
+    "remote add"
+  ],
+  "alias.remr": [
+    "remote rm"
+  ],
+  "alias.remv": [
+    "remote -v"
+  ],
+  "alias.remotes": [
+    "remote -v"
+  ],
+  "alias.sm": [
+    "submodule"
+  ],
+  "alias.smst": [
+    "submodule --status"
+  ],
+  "alias.sma": [
+    "submodule add"
+  ],
+  "alias.smu": [
+    "submodule update"
+  ],
+  "alias.sme": [
+    "submodule foreach"
+  ],
+  "alias.smepl": [
+    "submodule foreach (git checkout master; git pull)&"
+  ],
+  "alias.smui": [
+    "submodule update --init"
+  ],
+  "alias.smuir": [
+    "submodule update --init --recursive"
+  ],
+  "alias.smd": [
+    "submodule deinit"
+  ],
+  "alias.sms": [
+    "submodule sync"
+  ],
+  "alias.smpl": [
+    "submodule foreach git pull origin master"
+  ],
+  "alias.bl": [
+    "blame"
+  ],
+  "alias.gcp": [
+    "gc --prune=now"
+  ],
+  "alias.gca": [
+    "gc --aggressive"
+  ],
+  "alias.gcap": [
+    "gc --aggressive --prune=now"
+  ],
+  "alias.change-commits": [
+    "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
+  ],
+  "alias.remove-file": [
+    "!f() { git filter-branch -f --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all; }; f"
+  ],
+  "alias.rf": [
+    "reflog"
+  ],
+  "alias.rfe": [
+    "reflog expire --expire=now --all"
+  ],
+  "alias.pr": [
+    "prune"
+  ],
+  "alias.prm": [
+    "!git rfe && git gcp"
+  ],
+  "alias.whoami": [
+    "config user.email"
+  ],
+  "alias.fsize": [
+    "git ls-tree -r -t -l --full-name HEAD | sort -rn -k 4 | less"
+  ],
+  "alias.findemptydirs": [
+    "!find . -type d -empty ! -path ./tmp/\\*"
+  ],
+  "alias.deleteemptydirs": [
+    "!find . -type d -empty ! -path ./tmp/\\* -exec rmdir {} \\;"
+  ]
+}
