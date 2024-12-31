@@ -1,7 +1,9 @@
+echo ".bash_profile HOME: $HOME"
+
 if [ -f $HOME/.zprofile ]; then
     source $HOME/.zprofile
 fi
 
 if [ -f $HOME/.bashrc ]; then
-    source ~/.bashrc;
+    source $HOME/.bashrc;
 fi

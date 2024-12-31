@@ -1,11 +1,13 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+echo ".zprofile HOME: $HOME"
+
+eval "$($HOMEBREW_ROOT/bin/brew shellenv)"
 eval "$(rbenv init - --no-rehash zsh)"
 eval "$(jenv init -)"
 eval "$(pyenv init -)"
 eval "$(xcenv init -)"
 
-if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ -f $HOMEBREW_ROOT/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source $HOMEBREW_ROOT/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 setopt completealiases

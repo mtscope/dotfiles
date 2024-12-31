@@ -1,3 +1,13 @@
+echo ".zshrc HOME: $HOME"
+
+if [[ -z $GPG_LAUNCH_AGENT ]]; then
+    export GPG_LAUNCH_AGENT=$(tty)
+fi
+
+if [[ -z $GPG_TTY ]]; then
+    export GPG_TTY=$(tty)
+fi
+
 # Themes.
 ZSH_THEME="gentoo"
 
@@ -17,7 +27,8 @@ DISABLE_AUTO_TITLE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
+# DISABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -36,24 +47,19 @@ plugins=(
 )
 
 # Environment variables.
-source ~/.env
+source ~/.config/me/.env
 
 # Oh My Zsh.
 source ~/.oh-my-zsh/oh-my-zsh.sh
 
 # User config.
-source ~/.zsh/setopt.zsh
+source ~/.config/zsh/setopt.zsh
 
 # Aliases.
-source ~/.aliases
-source ~/.me/private/.aliases_private
+source ~/.config/me/.aliases
 
 # Functions.
-source ~/.functions
-source ~/.me/private/.functions_private
-
-# Private config.
-source ~/.me/private/.privaterc
+source ~/.config/me/.functions
 
 # Font
 source ~/.config/sketchybar/icon_map.sh
@@ -69,10 +75,12 @@ if [ -x "$(command -v fzf)" ]; then
     source <(fzf --zsh)
 fi
 
+# Ghostty shell integration for Bash. This should be at the top of your zsh!
+# test -e "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration" && builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
+
 # iterm2 shell integration.
 test -e "${HOME}/.iterm2/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2/.iterm2_shell_integration.zsh"
 
-# PROMPT='%(!.%B%F{red}.%B%F{green}%n@)%m %F{blue}%(!.%1~.%~) ${vcs_info_msg_0_}%F{blue}%(!.#.$)%k%b%f '
 PROMPT="%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
 PROMPT+=' $(git_prompt_info)'
 

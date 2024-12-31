@@ -1,0 +1,90 @@
+#!/bin/bash
+
+usage() { echo "Usage: $0 [-t target branch name ] [-m title for merge request] [-d description for merge request]" 1>&2; exit 1; }
+
+while getopts "t:m:d::" o; do
+    case "${o}" in
+        t)
+            t=${OPTARG}
+            ;;
+        m)
+            m=${OPTARG}
+            ;;
+        d)
+            d=${OPTARG}
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+if [ -z "${t}" ]; then
+    echo "t is empty"
+    usage
+fi
+
+if [ -z "${m}" ]; then
+    echo "m is empty"
+    usage
+fi
+
+if [ -z "${d}" ]; then
+    echo "d is empty"
+    usage
+fi
+
+CURRENT_DATE() {
+  date +%Y-%m-%d
+}
+
+CURRENT_TIMESTAMP() {
+  date +%Y-%m-%d_%H-%M-%S
+}
+
+echo $( CURRENT_DATE  )
+
+echo "glab auth login --stdin < .confiig/me/env.GITLAB_ACCESS_TOKEN
+
+glab issue create --title $m --description $d --label auto::daily --due-date $( CURRENT_DATE ) --assignee mtscope
+# glab issue new -t "Checkin Issue to Associate Code" -d "This issue will be used to associate current development efforts to an item for trackability.  The developer will associate this issue with a merge request and then later relate this issue to the relevant issue from the current sprint."  -l auto::daily -d $( CURRENT_DATE  ) -a $GITLAB_USERNAME -y
+
+glab issue list --per-page 1 --label auto::daily --output json | jq '.[0].iid'
+
+GITLAB_ISSUE_NUMBER=$(glab issue list --per-page 1 --label auto::daily --output json | jq '.[0].iid')
+
+GITLAB_ISSUE_NUMBER_PRE="'issue/$GITLAB_ISSUE_NUMBER'"
+
+echo $GITLAB_ISSUE_NUMBER_PRE
+
+glab mr create --title $GITLAB_ISSUE_NUMBER_PRE --assignee mtscope --target-branch main  --related-issue $GITLAB_ISSUE_NUMBER --label auto::daily --draft --yes
+
+glab mr list --per-page 1 --label auto::daily --output json --draft | jq '.[0].source_branch'
+GITLAB_ISSUE_BRANCH=$(glab mr list --per-page 1 --label auto::daily --output json --draft | jq '.[0].source_branch')
+
+echo $GITLAB_ISSUE_BRANCH
+
+glab mr list --per-page 1 --output json
+
+glab mr list --per-page 1 --output json | jq '.[0].source_branch'
+
+# git stash
+
+# git checkout main
+
+# git fetch origin
+
+# git pull --rebase
+
+# git checkout -b "$(echo $GITLAB_ISSUE_BRANCH)" --track "origin/$(echo $GITLAB_ISSUE_BRANCH)"
+
+# git pull --rebase
+
+# git commit -m "created $(CURRENT_TIMESTAMP)"
+# git push --allow-empty -o ci.skip
+
+# git stash pop
+
+glab issue view $GITLAB_ISSUE_NUMBER --web
+# glab ci view

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:19028",
+      "sslPort": 44330
+    }
+  },
+  "profiles": {
+    "WebApi": {
+      "commandName": "Project",
+      "commandLineArgs": "--environment=Development",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "launchBrowserTimeout":180,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/v1/health",
+      "applicationUrl": "http://{ServiceHost}::{ServicePort}",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DOTNET_ENVIRONMENT": "Development",
+        "ASPNETCORE_DETAILEDERRORS": "1",
+        "ASPNETCORE_HTTPS_PORTS": "443",
+        "ASPNETCORE_URLS": "https://+:443;http://+:80",
+        "ASPNETCORE_HTTPS_PORT": "44360",
+        "ASPNETCORE_Kestrel__Certificates__Default__Password": "password",
+        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/app/aspnetapp.pfx"
+      },
+      "publishAllPorts": true,
+      "httpPort": 51803,
+      "useSSL": false,
+      "sslPort": 44360
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "commandLineArgs": "--environment=Development",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "launchBrowserTimeout":180,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/v1/health",
+      "applicationUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "dockerfileRunArguments": "-l mylabel=value",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DOTNET_ENVIRONMENT": "Development",
+        "ASPNETCORE_DETAILEDERRORS": "1",
+        "ASPNETCORE_HTTPS_PORTS": "443",
+        "ASPNETCORE_URLS": "https://+:443;http://+:80",
+        "ASPNETCORE_HTTPS_PORT": "44360",
+        "ASPNETCORE_Kestrel__Certificates__Default__Password": "password",
+        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/app/aspnetapp.pfx"
+      },
+      "publishAllPorts": true,
+      "httpPort": 51803,
+      "useSSL": true,
+      "sslPort": 44360
+    }
+  }
+}

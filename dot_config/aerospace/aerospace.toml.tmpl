@@ -865,6 +865,15 @@ check-further-callbacks = true
 run = ['layout tiling',  'move-node-to-workspace 4']
 
 [[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser' #Arc Browser
+# if.app-name-regex-substring = 'settings'
+# if.window-title-regex-substring = 'substring'
+# if.workspace = 'workspace-name'
+# if.during-aerospace-startup = false
+check-further-callbacks = true
+run = ['layout tiling',  'move-node-to-workspace 9']
+
+[[on-window-detected]]
 if.app-id = 'org.torproject.torbrowser' #Tor Browser
 # if.app-name-regex-substring = 'settings'
 # if.window-title-regex-substring = 'substring'
@@ -901,6 +910,15 @@ check-further-callbacks = true
 run = ['layout tiling',  'move-node-to-workspace 2']
 
 [[on-window-detected]]
+if.app-id = 'com.todesktop.230313mzl4w4u92' #Cursor
+# if.app-name-regex-substring = 'settings'
+# if.window-title-regex-substring = 'substring'
+# if.workspace = 'workspace-name'
+# if.during-aerospace-startup = false
+check-further-callbacks = true
+run = ['layout tiling',  'move-node-to-workspace 5']
+
+[[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm' #WezTerm
 # if.app-name-regex-substring = 'settings'
 # if.window-title-regex-substring = 'substring'
@@ -935,6 +953,16 @@ if.window-title-regex-substring = 'Main'
 # if.during-aerospace-startup = false
 check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 2']
+
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty' #ghostty
+# if.app-name-regex-substring = 'settings'
+# if.window-title-regex-substring = 'Me'
+# if.workspace = 'workspace-name'
+# if.during-aerospace-startup = false
+check-further-callbacks = true
+run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2' #iTerm2

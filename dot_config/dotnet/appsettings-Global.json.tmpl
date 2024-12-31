@@ -1,0 +1,188 @@
+// https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-8.0#hi2low
+{
+  "Logging": {
+    "Console": {
+      "IncludeScopes": true
+    },
+    "LogLevel": {
+      "Default": "Warning",
+      "Microsoft": "Warning",
+      "Microsoft.AspNetCore": "Warning",
+      "Microsoft.Hosting.Lifetime": "Warning",
+      "Microsoft.AspNetCore.HttpLogging.HttpLoggingMiddleware": "Information"
+    }
+  },
+  "DetailedErrors": true,
+  "Serilog": {
+    "Using": [
+      "Serilog.Sinks.Console",
+      "Serilog.Sinks.ApplicationInsights"
+    ],
+    "MinimumLevel": {
+      "Default": "Debug",
+      "Override": {
+        "Microsoft": "Warning",
+        "System": "Warning"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Console",
+        "Args": {
+          "theme": "Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme::Code, Serilog.Sinks.Console",
+          "outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} <s:{SourceContext}>{NewLine}{Exception}"
+        }
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "log.txt",
+          "rollingInterval": "Day",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}",
+          "shared": true
+        }
+      },
+      {
+        "Name": "ApplicationInsights",
+        "Args": {
+          "connectionString": "[your connection string here]",
+          "telemetryConverter": "Serilog.Sinks.ApplicationInsights.TelemetryConverters.TraceTelemetryConverter, Serilog.Sinks.ApplicationInsights"
+        }
+      }
+    ],
+    "Enrich": [
+      "FromLogContext"
+    ]
+  },
+  "AllowedHosts": "*",
+  "AllowedOrigins": "*",
+  "Sentry": {
+    "Dsn": "https://glet_681d9856ff8ff96c8b6ef4d7bc701e77@observe.gitlab.com:443/errortracking/api/v1/projects/38927327",
+    "MinimumEventLevel": "Warning",
+    "AttachStackTrace": true,
+    "Debug": true,
+    "DiagnosticLevel": "Error",
+    "TracesSampleRate": 1.0
+  },
+  "Unleash": {
+    "ApiUrl": "https://gitlab.com/api/v4/feature_flags/unleash/{UNLEASH_API}",
+    "InstanceId": "{UNLEASH_INSTANCE_ID}"
+  },
+  "Kestrel": {
+    "Endpoints": {
+      "Http": {
+        "Url": "http://localhost:5000"
+      },
+      "HttpsInlineCertFile": {
+        "Url": "https://localhost:5001",
+        "Certificate": {
+          "Path": "<path to .pfx file>",
+          "Password": "$CREDENTIAL_PLACEHOLDER$"
+        }
+      },
+      "HttpsInlineCertAndKeyFile": {
+        "Url": "https://localhost:5002",
+        "Certificate": {
+          "Path": "<path to .pem/.crt file>",
+          "KeyPath": "<path to .key file>",
+          "Password": "$CREDENTIAL_PLACEHOLDER$"
+        }
+      },
+      "HttpsInlineCertStore": {
+        "Url": "https://localhost:5003",
+        "Certificate": {
+          "Subject": "<subject; required>",
+          "Store": "<certificate store; required>",
+          "Location": "<location; defaults to CurrentUser>",
+          "AllowInvalid": "<true or false; defaults to false>"
+        }
+      },
+      "HttpsDefaultCert": {
+        "Url": "https://localhost:5004"
+      }
+    },
+    "Certificates": {
+      "Default": {
+        "Path": "<path to .pfx file>",
+        "Password": "$CREDENTIAL_PLACEHOLDER$"
+      }
+    }
+  },
+  "SAML": {
+    "$schema": "https://www.componentspace.com/schemas/saml-config-schema-v1.0.json",
+    "Configurations": [
+      {
+        "LocalServiceProviderConfiguration": {
+          "AssertionConsumerServiceUrl": "https://auth-api.emptyscope.com/v1/Saml/AssertionConsumerService",
+          "LocalCertificates": [
+            {
+              "FileName": "certificates-current\\EMPTYSCOPE-SAML-SIGNING-PRODUCTION.pfx",
+              "Password": "%EMPTYSCOPE_SAML_SIGNING_PRODUCTION%"
+            },
+            {
+              "FileName": "certificates-current\\EMPTYSCOPE-SAML-ENCRYPTION-PRODUCTION.pfx",
+              "Password": "%EMPTYSCOPE_SAML_ENCRYPTION_PRODUCTION%"
+            }
+          ],
+          "Name": "https://auth-api.emptyscope.com/sp",
+          "Description": "Emptyscope Service Provider",
+          "SingleLogoutServiceUrl": "https://auth-api.emptyscope.com/v1/Saml/SingleLogoutService"
+        },
+        "PartnerIdentityProviderConfigurations": [
+          {
+            "Name": "http://www.okta.com/a11rhuvkrxRIgtr1F2t5",
+            "Description": "Identity Provider",
+            "SignAuthnRequest": false,
+            "SignLogoutRequest": false,
+            "SignLogoutResponse": false,
+            "WantLogoutRequestSigned": false,
+            "WantLogoutResponseSigned": false,
+            "PartnerCertificates": [
+              {
+                "String": "",
+                "Use": "Encryption"
+              },
+              {
+                "String": "",
+                "Use": "Signature"
+              }
+            ],
+            "SingleLogoutServiceUrl": "https://emptyscope.okta.com/app/emptyscope_client_1/ackxrgvjrxGIgtr1A2t1/sso/saml/logout",
+            "SingleSignOnServiceUrl": "https://emptyscope.okta.com/app/emptyscope_client_1/ackxrgvjrxGIgtr1A2t1/sso/saml"
+          }
+        ]
+      }
+    ]
+  },
+  "CurrentProjectInformation": {
+    "ApplicationName": "DotnetWeb",
+    "DefaultLogLocation": "DotnetWeb-Log.txt",
+    "VersionInformation": {
+      "ApiVersion": "1.0.0",
+      "ApiMajorVersion": 1,
+      "ApiMinorVersion": 0,
+      "ApiBugVersion": 0,
+      "ProjectVersion": "1.0",
+      "ProjectMajorVersion": 1,
+      "ProjectMinorVersion": 0,
+      "GitCommitHash": "0000000000000000000000000000000000000000"
+    },
+    "EnvironmentInformation": {
+      "Environment": {
+        "Url": "https://DotnetWeb-unknown.azurewebsites.net/",
+        "AuthenticationScheme": "Basic",
+        "Authentication": {
+          "Audience": "https://unknown.DotnetWeb.com/",
+          "Issuer": null,
+          "Key": null,
+          "Domain": "DotnetWeb-unknown.auth0.com",
+          "TenantId": null,
+          "ClientId": ""
+        },
+        "EnvironmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Unknown"
+        }
+      }
+    }
+  }
+}

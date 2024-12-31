@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <config>
+    <add key="dependencyVersion" value="Highest"/>
+    <add key="signatureValidationMode" value="accept"/>
+    <add key="defaultPushSource" value="https://api.nuget.org/v3/index.json" />
+    <!-- <add key="defaultPushSource" value="https://gitlab.com/api/v4/groups/57182844/-/packages/nuget/index.json" /> -->
+    <!-- <add key="defaultPushSource" value="https://nuget.pkg.github.com/emptyscope/index.json" /> -->
+    <!-- <add key="defaultPushSource" value="https://pkgs.dev.azure.com/emptyscope/_packaging/v5/nuget/v3/index.json" /> -->
+    <!-- <add key="defaultPushSource" value="https://gitlab.com/api/v4/groups/68102594/-/packages/nuget/index.json" /> -->
+    <!-- <add key="defaultPushSource" value="https://nuget.pkg.github.com/rxlightning/index.json" /> -->
+    <!-- <add key="defaultPushSource" value="https://pkgs.dev.azure.com/rxlightning/_packaging/v5/nuget/v3/index.json" /> -->
+  </config>
+
+  <solution>
+    <add key="disableSourceControlIntegration" value="true"/>
+  </solution>
+
+  <bindingRedirects>
+    <add key="skip" value="false"/>
+  </bindingRedirects>
+
+  <packageRestore>
+    <add key="enabled" value="true"/>
+    <add key="automatic" value="true"/>
+  </packageRestore>
+
+  <packageSources>
+    <clear/>
+    <add key="nuget" value="https://api.nuget.org/v3/index.json" protocolVersion="3"/>
+    <add key="github-rxlightning" value="https://nuget.pkg.github.com/rxlightning/index.json" protocolVersion="3"/>
+    <add key="gitlab-rxlightning" value="https://gitlab.com/api/v4/groups/68102594/-/packages/nuget/index.json" protocolVersion="3"/>
+    <add key="github-emptyscope" value="https://nuget.pkg.github.com/emptyscope/index.json" protocolVersion="3"/>
+    <add key="gitlab-emptyscope" value="https://gitlab.com/api/v4/groups/57182844/-/packages/nuget/index.json" protocolVersion="3"/>
+    <add key="azure-rxlightning" value="https://pkgs.dev.azure.com/rxlightning/_packaging/v5/nuget/v3/index.json" protocolVersion="3"/>
+    <add key="azure-emptyscope" value="https://pkgs.dev.azure.com/emptyscope/_packaging/v5/nuget/v3/index.json" protocolVersion="3"/>
+  </packageSources>
+
+  <apikeys>
+    <add key="https://api.nuget.org/v3/index.json" value="$NUGET_ACCESS_TOKEN"/>
+  </apikeys>
+
+  <packageSourceCredentials>
+    <github-rxlightning>
+      <add key="Username" value="$GITHUB_USERNAME"/>
+      <add key="ClearTextPassword" value="$GITHUB_ACCESS_TOKEN"/>
+    </github-rxlightning>
+    <gitlab-rxlightning>
+      <add key="Username" value="$GITLAB_USERNAME"/>
+      <add key="ClearTextPassword" value="$GITLAB_ACCESS_TOKEN"/>
+    </gitlab-rxlightning>
+    <github-emptyscope>
+      <add key="Username" value="$GITHUB_USERNAME"/>
+      <add key="ClearTextPassword" value="$GITHUB_ACCESS_TOKEN"/>
+    </github-emptyscope>
+    <gitlab-emptyscope>
+      <add key="Username" value="$GITLAB_USERNAME"/>
+      <add key="ClearTextPassword" value="$GITLAB_ACCESS_TOKEN"/>
+    </gitlab-emptyscope>
+  </packageSourceCredentials>
+
+  <disabledPackageSources>
+    <add key="azure-rxlightning" value="https://pkgs.dev.azure.com/rxlightning/_packaging/v5/nuget/v3/index.json"/>
+    <add key="azure-emptyscope" value="https://pkgs.dev.azure.com/emptyscope/_packaging/v5/nuget/v3/index.json"/>
+    <add key="github-rxlightning" value="true"/>
+    <add key="github-emptyscope" value="true"/>
+  </disabledPackageSources>
+
+  <activePackageSource>
+    <add key="nuget" value="https://api.nuget.org/v3/index.json" protocolVersion="3" allowInsecureConnections="false"/>
+    <add key="gitlab-rxlightning" value="https://gitlab.com/api/v4/groups/68102594/-/packages/nuget/index.json" allowInsecureConnections="false"/>
+    <add key="gitlab-emptyscope" value="https://gitlab.com/api/v4/groups/57182844/-/packages/nuget/index.json" allowInsecureConnections="false"/>
+    <add key="All" value="(Aggregate source)"/>
+  </activePackageSource>
+
+  <packageSourceMapping>
+    <!-- key value for <packageSource> should match key values from <packageSources> element -->
+    <packageSource key="gitlab-rxlightning">
+      <package pattern="RxLightning.*" />
+      <package pattern="RxL.*" />
+    </packageSource>
+    <packageSource key="gitlab-emptyscope">
+      <package pattern="Emptyscope.*" />
+      <package pattern="DotnetWeb.*" />
+    </packageSource>
+    <packageSource key="nuget">
+      <package pattern="*" />
+    </packageSource>
+  </packageSourceMapping>
+</configuration>

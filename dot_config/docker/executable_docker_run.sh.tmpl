@@ -1,0 +1,86 @@
+# Start Gitlab-Runner container
+docker run -d \
+    --name gitlab-runner \
+    --restart always \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v gitlab-runner-data:/etc/gitlab-runner \
+    -e TZ=UTC \
+    gitlab/gitlab-runner:latest
+
+# Start Prometheus container
+docker run -d \
+    --name prometheus \
+    --restart always \
+    -p 9090:9090 \
+    -v /Users/bradley/.config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+    -v prometheus-data:/prometheus \
+    --network local-network \
+    prom/prometheus:latest
+
+# Start Grafana container
+docker run -d \
+    --name grafana \
+    --restart always \
+    -p 9292:3000 \
+    -v grafana-data:/var/lib/grafana \
+    --network local-network \
+    # -e "GF_SERVER_ROOT_URL=" \
+    -e "GF_INSTALL_PLUGINS=grafana-clock-panel, grafana-simple-json-datasource" \
+    grafana/grafana-oss:latest
+
+# Start Redis container
+docker run -d \
+    --name redis \
+    --restart always \
+    -p 6379:6379 \
+    -v redis-data:/data \
+    --network local-network \
+    redis:alpine
+
+# Start Azure SQL container
+# docker run -d \
+#     --name mssql \
+#     --restart always \
+#     -p 1433:1433 \
+#     --network local-network \
+#     -e "ACCEPT_EULA=Y" \
+#     -e "MSSQL_PID=Developer" \
+#     -e "MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD" \
+#     -e "MSSQL_SLEEP=7" \
+#     mcr.microsoft.com/azure-sql-edge:latest
+
+# Start MSSQL SQL container
+docker run -d \
+    --name mssql \
+    --restart always \
+    -p 1433:1433 \
+    --network local-network \
+    -e "ACCEPT_EULA=Y" \
+    -e "MSSQL_PID=Developer" \
+    -e "MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD" \
+    mcr.microsoft.com/mssql/server:2019-latest
+
+# Start Postgres container
+docker run -d \
+    --name postgres \
+    --hostname postgres \
+    --restart always \
+    -p 5432:5432 \
+    -v postgres-data:/postgres \
+    --network local-network \
+    -e POSTGRES_USER="$POSTGRES_USER" \
+    -e POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
+    postgres:alpine
+
+# Start RabbitMQ container
+docker run -d \
+    --name rabbitmq \
+    --restart always \
+    -p 5672:5672 \
+    -p 15672:15672 \
+    -v rabbitmq-data:/rabbitmq \
+    --network local-network \
+    -e RABBITMQ_DEFAULT_VHOST=rabbitmq_vhost \
+    -e RABBITMQ_DEFAULT_USER="$RABBITMQ_DEFAULT_USER" \
+    -e RABBITMQ_DEFAULT_PASS="$RABBITMQ_DEFAULT_PASS" \
+    rabbitmq:management-alpine

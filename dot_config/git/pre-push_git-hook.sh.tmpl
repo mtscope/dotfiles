@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+# .git/hooks/pre-push
+
+branch_blocked=develop
+
+if grep -q "$branch_blocked"; then
+    echo "Branch '$branch_blocked' is blocked by yourself." >&2
+    exit 1
+fi
