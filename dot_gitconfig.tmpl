@@ -4,18 +4,18 @@
     signingkey = 3D4B7FFEEE4CB02075BEC52447DF1B5671197CED
 
 [includeIf "gitdir:~/src/Me/"]
-    path = ~/.me/.gitconfig_me
+    path = $HOME/.config/git/.gitconfig_me
 
 [includeIf "gitdir:~/src/Emptyscope/"]
-    path = ~/.me/.gitconfig_emptyscope
+    path = $HOME/.config/git/.gitconfig_emptyscope
 
 [includeIf "gitdir:~/src/RxLightning/"]
-    path = ~/.me/.gitconfig_rxlightning
+    path = $HOME/.config/git/.gitconfig_rxlightning
 
 [core]
     editor = code
     autocrlf = false
-    excludesfile = /Users/bradley/.me/.gitignore_global
+    excludesfile = $HOME/.config/git/.gitignore_global
 
 [pull]
     ff = only
@@ -30,8 +30,8 @@
     tool = code
 
 [commit]
-    gpgsign = true
-    template = ~/.me/git/.git-commit-template.txt
+	gpgsign = true
+    template = $HOME/.config/git/.git-commit-template.txt
 
 [apply]
     ignorewhitespace = change
@@ -87,8 +87,8 @@
     process = git-lfs filter-process
 
 [gpg]
-    program = /opt/homebrew/bin/gpg
-    format = openpgp
+	program = /opt/homebrew/bin/gpg
+	format = openpgp
 
 [mergetool "code"]
     cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED

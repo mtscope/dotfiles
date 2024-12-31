@@ -1,0 +1,32 @@
+minica --domains 'localhost,rxlightning-local.com,*.rxlightning-local.com' --ip-addresses 127.0.0.1
+
+mv minica.pem localhost/* $HOME/.dotnet/certificates
+
+touch $HOME/.dotnet/certificates/firefox/policies.json
+
+#  (Join-Path $env:UserProfile ".aspnet/https/localhost.pfx")
+dotnet dev-certs https --clean --import $HOME/.dotnet/certificates -p {PASSWORD}
+dotnet dev-certs https --trust
+
+# yes that extra pass: has to be in front but it doesn't actually count as part of the password :)
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt -config localhost.conf -passin pass:{PASSWORD}
+
+sudo openssl pkcs12 -export -out localhost.pfx -inkey localhost.key -in localhost.crt
+
+sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" localhost.crt
+sudo security authorizationdb write com.apple.trust-settings.admin allow ; security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" localhost.crt ; security authorizationdb remove com.apple.trust-settings.admin
+sudo security authorizationdb write com.apple.trust-settings.admin allow ; security add-trusted-cert -d -r trustAsRoot -p ssl -k "/Library/Keychains/System.keychain" /etc/ssl/ldap0.pem ; security authorizationdb remove com.apple.trust-settings.admin
+
+sudo openssl pkcs12 -in localhost.pfx -out localhost.pem -nodes
+openssl pkcs12 -in localhost.pfx -out localhost.nokey.pem -nokeys
+openssl pkcs12 -in localhost.pfx -out localhost.withkey.pem
+cat localhost.nokey.pem localhost.key > localhost.combo.pem
+
+dotnet dev-certs https --check
+
+dotnet dev-certs https --clean --import localhost.combo.pem --password {PASSWORD}
+dotnet dev-certs https --clean --import localhost.pfx --password {PASSWORD}
+
+dotnet dev-certs https --check --trust
+
+dotnet dev-certs https --format pem -ep "$HOME/.dotnet/https/localhost.pem" --no-password

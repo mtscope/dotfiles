@@ -1,6 +1,6 @@
 echo ".zprofile HOME: $HOME"
 
-eval "$($HOMEBREW_ROOT/bin/brew shellenv)"
+eval "$($HOMEBREW_PATH/brew shellenv)"
 eval "$(rbenv init - --no-rehash zsh)"
 eval "$(jenv init -)"
 eval "$(pyenv init -)"

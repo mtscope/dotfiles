@@ -1,7 +1,17 @@
 echo ".zlogin HOME: $HOME"
 
+reload_gpg_agent=false
+
 if [[ -z $GPG_LAUNCH_AGENT ]]; then
     export GPG_LAUNCH_AGENT=$(tty)
+    reload_gpg_agent=true
+fi
+
+if [[ -z $GPG_TTY ]]; then
     export GPG_TTY=$(tty)
+    reload_gpg_agent=true
+fi
+
+if [[ "$reload_gpg_agent" == true ]]; then
     gpgconf --launch gpg-agent
 fi
