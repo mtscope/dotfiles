@@ -22,4 +22,6 @@ hosts:
         # Configure host for API endpoint. Defaults to the host itself.
         api_host: gitlab.com
         # Your GitLab access token. To get one, read https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html
-        token: null
+        git_protocol: ssh
+        user: mtscope
+        token: !!null $GITLAB_TOKEN
