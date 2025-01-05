@@ -52,6 +52,24 @@ fshow() {
         --bind="alt-y:execute:$commit_hash | xclip -selection clipboard"
 }
 
+frontmost() {
+    osascript -e 'tell application "System Events" to tell process '"\"$1\"" \
+            -e 'set frontmost to true' \
+            -e 'end tell'
+}
+
+installed() {
+    if [[ -n $1 ]]; then
+        if open -Ra "$1" ; then
+            echo "VERIFIED: $1 is installed"
+        else
+            echo "ERROR: $1 is not installed"
+        fi
+    else
+        echo "ERROR: add an application name as an arugument"
+    fi
+}
+
 # Remove all commit in Git
 git-remove-all-commit() {
     local branch
