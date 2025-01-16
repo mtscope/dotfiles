@@ -281,8 +281,8 @@ alias dotvun="brew uninstall --zap --cask dotnet-sdk9-0-100"
 # alias bw-work="BITWARDENCLI_APPDATA_DIR=~/.config/Bitwarden\ CLI\ Work /path/to/bw $@"
 alias bw='NODE_OPTIONS="--no-deprecation" bw'
 
-
 # MacOS
+alias installRosetta="softwareupdate --install-rosetta --agree-to-license"
 alias dockOnBottom='defaults write com.apple.dock "orientation" -string "bottom" && killall Dock'
 alias dragByWindow='defaults write -g NSWindowShouldDragOnGesture -bool true'
 alias disableWindowAnimation='defaults write -g NSAutomaticWindowAnimationsEnabled -bool false'
@@ -297,3 +297,11 @@ alias foldersFirstFinder='defaults write com.apple.finder "_FXSortFoldersFirst" 
 alias foldersFirstDesktop='defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" -bool "true" && killall Finder'
 alias disableExtensionWarning='defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "true" && killall Finder'
 alias plainTextDefault='defaults write com.apple.TextEdit "RichText" -bool "false" && killall TextEdit'
+
+# Duti
+# https://github.com/moretension/duti/
+# brew install duti
+# https://kislyuk.github.io/yq/
+# brew install python-yq
+alias openApplicationDefault="duti -s com.microsoft.VSCode public.plain-text all | duti -s com.microsoft.VSCode public.unix-executable all | duti -s com.microsoft.VSCode public.data all"
+alias codeApplicationDefault="curl https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml | yq -r 'to_entries | (map(.value.extensions) | flatten) - [null] | unique | .[]' | xargs -L 1 -I '{}' duti -s com.microsoft.VSCode {} all"
