@@ -16,3 +16,8 @@ CMakeUserPresets.json
 **.cert
 /dot_terraform.d/checkpoint_signature.tmpl
 /dot_terraform.d/checkpoint_cache.tmpl
+.DS_Store
+.DS_Store/**/*
+*.DS_Store
+**/.DS_Store
+**/.DS_Store/**/*
