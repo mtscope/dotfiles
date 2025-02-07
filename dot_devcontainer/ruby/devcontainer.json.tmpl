@@ -1,0 +1,41 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/universal
+{
+    "name": "Default Directory",
+    "image": "mcr.microsoft.com/devcontainers/python:dev-3.11-bullseye",
+	// "dockerComposeFile": "docker-compose.yml",
+    // "service": "devcontainer",
+    // "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	// "build": {
+    //     // Path is relative to the devcontainer.json file.
+    //     "dockerfile": "Dockerfile"
+    // }
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/go:1": {
+            "version": "1.23.3"
+        }
+    },
+    "overrideFeatureInstallOrder": [
+        "ghcr.io/devcontainers/features/python",
+        "ghcr.io/devcontainers/features/docker-in-docker"
+    ],
+    "remoteEnv": {
+        "PODMAN_USERNS": "keep-id"
+      },
+    "containerUser": "vscode"
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}

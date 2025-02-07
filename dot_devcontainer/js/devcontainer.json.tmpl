@@ -1,0 +1,40 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options
+{
+    "name": "Default Directory",
+    "image": "docker pull mcr.microsoft.com/devcontainers/typescript-node:dev-bullseye",    //pre-built image
+	// "dockerComposeFile": "docker-compose.yml",                           //docker-compose
+    // "service": "devcontainer",                                           //docker-compose
+    // "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",    //docker-compose
+	// "build": {                                                       //dockerFile
+    //     // Path is relative to the devcontainer.json file.            //dockerFile
+    //     "dockerfile": "Dockerfile"                                     //dockerFile
+    // }                                                                //dockerFile
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/go:1": {
+            "version": "1.23.3"
+        }
+    },
+    "overrideFeatureInstallOrder": [
+        "ghcr.io/devcontainers/features/typescript",
+        "ghcr.io/devcontainers/features/docker-in-docker"
+    ],
+    "remoteEnv": {
+        "PODMAN_USERNS": "keep-id"
+      },
+    "containerUser": "vscode"
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
