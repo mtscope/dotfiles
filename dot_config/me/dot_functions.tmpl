@@ -91,6 +91,21 @@ git-remove-all-commit() {
     esac
 }
 
+repos-sync() {
+    cd "$@"
+
+    #Sync All
+    repo sync
+
+    #Loop through each repo and do a git pull!
+    #repo forall -p -c git pull --rebase
+
+    #Loop through each repo and create a daily worktree!
+    #repo forall -p -c git worktree add worktrees/$(date +%Y-%m-%d_%H-%M-%S)
+
+    cd ~
+}
+
 # Start PHP server
 phpserver() {
     local ip=localhost
