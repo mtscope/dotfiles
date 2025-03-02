@@ -1,0 +1,44 @@
+contexts:
+  default:
+    defaultIde: openvscode
+    defaultProvider: digitalocean
+    options:
+      AGENT_URL:
+        userProvided: true
+    providers:
+      digitalocean:
+        creationTimestamp: "2025-02-05T23:35:26Z"
+        initialized: true
+        options:
+          AGENT_DATA_PATH:
+            userProvided: true
+            value: /home/devpod/.devpod/agent
+          AGENT_PATH:
+            userProvided: true
+            value: /home/devpod/.devpod/devpod
+          DISK_IMAGE:
+            userProvided: true
+            value: docker-20-04
+          DISK_SIZE:
+            userProvided: true
+            value: "30"
+          INACTIVITY_TIMEOUT:
+            userProvided: true
+            value: 10m
+          INJECT_DOCKER_CREDENTIALS:
+            userProvided: true
+            value: "true"
+          INJECT_GIT_CREDENTIALS:
+            userProvided: true
+            value: "true"
+          MACHINE_TYPE:
+            userProvided: true
+            value: s-8vcpu-16gb
+          REGION:
+            userProvided: true
+            value: nyc1
+          TOKEN:
+            userProvided: true
+            value: $DEV_POD_TOKEN
+        singleMachine: true
+defaultContext: default

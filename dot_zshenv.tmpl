@@ -64,12 +64,6 @@ fi
 # bat.
 export BAT_THEME="GitHub"
 
-# First Run
-if [[ -z $IS_FIRST_START ]]; then
-    echo "Is First Startup"
-    export IS_FIRST_START=false
-fi
-
 # fzf.
 export FZF_DEFAULT_OPTS=" \
     --color=fg:#c0c5ce,bg:#212121,hl:#808080,fg+:#e6e6e6,bg+:#3b3b3b,hl+:#f7c662 \
@@ -151,16 +145,16 @@ export JAVA_HOME="$HOME/.jenv"
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#net-sdk-and-cli-environment-variables
 
 # default install
-# export DOTNET_ROOT="/usr/local/share/dotnet"
-# export DOTNET_ROOT_X64="/usr/local/share/dotnet/x64/dotnet"
+export DOTNET_ROOT="/usr/local/share/dotnet"
+export DOTNET_ROOT_X64="/usr/local/share/dotnet/x64/dotnet"
 
 # brew install:  https://github.com/isen-ng/homebrew-dotnet-sdk-versions
 # brew tap isen-ng/dotnet-sdk-versions
 # brew install --cask dotnet-sdk9
 # brew install --cask dotnet-sdk9-0-100
 # brew uninstall --zap --cask dotnet-sdk9-0-100
-export DOTNET_ROOT="$HOMEBREW_PATH/dotnet"
-export DOTNET_ROOT_X64="$HOMEBREW_PATH/dotnet"
+# export DOTNET_ROOT="$HOMEBREW_PATH/dotnet"
+# export DOTNET_ROOT_X64="$HOMEBREW_PATH/dotnet"
 export DOTNET_HOME="$HOME/.dotnet"
 export DOTNET_HOME_TOOLS="$DOTNET_HOME/tools"
 

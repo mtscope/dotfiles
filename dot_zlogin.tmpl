@@ -15,8 +15,3 @@ fi
 if [[ "$reload_gpg_agent" == true ]]; then
     gpgconf --launch gpg-agent
 fi
-
-if [[ -z $IS_FIRST_START ]]; then
-    repos-sync src/Rxlightning
-    repos-sync src/Emptyscope
-fi
