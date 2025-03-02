@@ -1,0 +1,189 @@
+{
+    "name": "digitalocean",
+    "version": "v0.0.2",
+    "icon": "https://devpod.sh/assets/digitalocean.svg",
+    "source": {
+        "github": "loft-sh/devpod-provider-digitalocean",
+        "raw": "digitalocean"
+    },
+    "description": "DevPod on DigitalOcean",
+    "optionGroups": [
+        {
+            "name": "Digital Ocean options",
+            "options": [
+                "DISK_SIZE",
+                "DISK_IMAGE",
+                "MACHINE_TYPE"
+            ]
+        },
+        {
+            "name": "Agent options",
+            "options": [
+                "AGENT_PATH",
+                "AGENT_DATA_PATH",
+                "INACTIVITY_TIMEOUT",
+                "INJECT_DOCKER_CREDENTIALS",
+                "INJECT_GIT_CREDENTIALS"
+            ]
+        }
+    ],
+    "options": {
+        "AGENT_DATA_PATH": {
+            "description": "The path where to store the agent data.",
+            "default": "/home/devpod/.devpod/agent"
+        },
+        "AGENT_PATH": {
+            "description": "The path where to inject the DevPod agent to.",
+            "default": "/home/devpod/.devpod/devpod"
+        },
+        "DISK_IMAGE": {
+            "description": "The disk image to use.",
+            "default": "docker-20-04"
+        },
+        "DISK_SIZE": {
+            "description": "The disk size in GB.",
+            "default": "30"
+        },
+        "INACTIVITY_TIMEOUT": {
+            "description": "If defined, will automatically stop the VM after the inactivity period.",
+            "default": "10m"
+        },
+        "INJECT_DOCKER_CREDENTIALS": {
+            "description": "If DevPod should inject docker credentials into the remote host.",
+            "default": "true"
+        },
+        "INJECT_GIT_CREDENTIALS": {
+            "description": "If DevPod should inject git credentials into the remote host.",
+            "default": "true"
+        },
+        "MACHINE_TYPE": {
+            "description": "The machine type to use.",
+            "suggestions": [
+                "s-1vcpu-2gb",
+                "s-2vcpu-4gb",
+                "s-4vcpu-8gb",
+                "s-8vcpu-16gb",
+                "c-2",
+                "c-4",
+                "c-8",
+                "c-16",
+                "c-32"
+            ],
+            "default": "s-4vcpu-8gb"
+        },
+        "REGION": {
+            "description": "The digital ocean region to use. E.g. fra1",
+            "required": true,
+            "suggestions": [
+                "ams2",
+                "ams3",
+                "blr1",
+                "fra1",
+                "lon1",
+                "nyc1",
+                "nyc2",
+                "ncy3",
+                "sfo1",
+                "sfo2",
+                "sfo3",
+                "sgp1",
+                "tor1"
+            ],
+            "default": "fra1"
+        },
+        "TOKEN": {
+            "description": "The DigitalOcean token to use.",
+            "required": true,
+            "password": true,
+            "command": "if [ ! -z \"${DIGITALOCEAN_TOKEN}\" ]; then\n  echo ${DIGITALOCEAN_TOKEN}\nelif [ ! -z \"${DIGITALOCEAN_ACCESS_TOKEN}\" ]; then\n  echo ${DIGITALOCEAN_ACCESS_TOKEN}\nfi"
+        }
+    },
+    "agent": {
+        "path": "${AGENT_PATH}",
+        "dataPath": "${AGENT_DATA_PATH}",
+        "inactivityTimeout": "${INACTIVITY_TIMEOUT}",
+        "injectGitCredentials": "${INJECT_GIT_CREDENTIALS}",
+        "injectDockerCredentials": "${INJECT_DOCKER_CREDENTIALS}",
+        "exec": {
+            "shutdown": [
+                "${DO_PROVIDER} stop"
+            ]
+        },
+        "binaries": {
+            "DO_PROVIDER": [
+                {
+                    "os": "linux",
+                    "arch": "amd64",
+                    "checksum": "77142852d7b2002b99f66be0c495dff7333de2dc1beb9afe821f0e1e9793f2ee",
+                    "path": "https://github.com/loft-sh/devpod-provider-digitalocean/releases/download/v0.0.2/devpod-provider-digitalocean-linux-amd64"
+                },
+                {
+                    "os": "linux",
+                    "arch": "arm64",
+                    "checksum": "8da9693dd12c451c6bd67884d3dfe3229f6bd20e256e9ca54eefc1cd1ab017fd",
+                    "path": "https://github.com/loft-sh/devpod-provider-digitalocean/releases/download/v0.0.2/devpod-provider-digitalocean-linux-arm64"
+                }
+            ]
+        },
+        "dockerless": {},
+        "docker": {},
+        "custom": {}
+    },
+    "exec": {
+        "init": [
+            "${DO_PROVIDER} init"
+        ],
+        "command": [
+            "${DO_PROVIDER} command"
+        ],
+        "create": [
+            "${DO_PROVIDER} create"
+        ],
+        "delete": [
+            "${DO_PROVIDER} delete"
+        ],
+        "start": [
+            "${DO_PROVIDER} start"
+        ],
+        "stop": [
+            "${DO_PROVIDER} stop"
+        ],
+        "status": [
+            "${DO_PROVIDER} status"
+        ]
+    },
+    "binaries": {
+        "DO_PROVIDER": [
+            {
+                "os": "linux",
+                "arch": "amd64",
+                "checksum": "77142852d7b2002b99f66be0c495dff7333de2dc1beb9afe821f0e1e9793f2ee",
+                "path": "https://github.com/loft-sh/devpod-provider-digitalocean/releases/download/v0.0.2/devpod-provider-digitalocean-linux-amd64"
+            },
+            {
+                "os": "linux",
+                "arch": "arm64",
+                "checksum": "8da9693dd12c451c6bd67884d3dfe3229f6bd20e256e9ca54eefc1cd1ab017fd",
+                "path": "https://github.com/loft-sh/devpod-provider-digitalocean/releases/download/v0.0.2/devpod-provider-digitalocean-linux-arm64"
+            },
+            {
+                "os": "darwin",
+                "arch": "amd64",
+                "checksum": "acb610f694d372dd495fb5178862833e7ac0134920813b8b9377722fc10f4326",
+                "path": "https://github.com/loft-sh/devpod-provider-digitalocean/releases/download/v0.0.2/devpod-provider-digitalocean-darwin-amd64"
+            },
+            {
+                "os": "darwin",
+                "arch": "arm64",
+                "checksum": "9a60439ed8a7a96c206f9303629a1dd01739291086a7b6cca7212ce5fed50fd8",
+                "path": "https://github.com/loft-sh/devpod-provider-digitalocean/releases/download/v0.0.2/devpod-provider-digitalocean-darwin-arm64"
+            },
+            {
+                "os": "windows",
+                "arch": "amd64",
+                "checksum": "c040720c6f6a8e63d7dc01168f0bdbb16fc123e2a6c0f716503487ed237e8669",
+                "path": "https://github.com/loft-sh/devpod-provider-digitalocean/releases/download/v0.0.2/devpod-provider-digitalocean-windows-amd64.exe"
+            }
+        ]
+    }
+}

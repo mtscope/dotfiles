@@ -12,7 +12,7 @@ docker run -d \
     --name prometheus \
     --restart always \
     -p 9090:9090 \
-    -v /Users/bradley/.config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+    -v  $HOME/.config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
     -v prometheus-data:/prometheus \
     --network local-network \
     prom/prometheus:latest
