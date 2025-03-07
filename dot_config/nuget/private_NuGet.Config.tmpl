@@ -37,25 +37,25 @@
   </packageSources>
 
   <apikeys>
-    <add key="https://api.nuget.org/v3/index.json" value="$NUGET_ACCESS_TOKEN"/>
+    <add key="https://api.nuget.org/v3/index.json" value="%NUGET_ACCESS_TOKEN%"/>
   </apikeys>
 
   <packageSourceCredentials>
     <github-rxlightning>
-      <add key="Username" value="$GITHUB_USERNAME"/>
-      <add key="ClearTextPassword" value="$GITHUB_ACCESS_TOKEN"/>
+      <add key="Username" value="%GITHUB_USERNAME%" />
+      <add key="ClearTextPassword" value="%GITHUB_ACCESS_TOKEN%" />
     </github-rxlightning>
-    <gitlab-rxlightning>
-      <add key="Username" value="$GITLAB_USERNAME"/>
-      <add key="ClearTextPassword" value="$GITLAB_ACCESS_TOKEN"/>
-    </gitlab-rxlightning>
     <github-emptyscope>
-      <add key="Username" value="$GITHUB_USERNAME"/>
-      <add key="ClearTextPassword" value="$GITHUB_ACCESS_TOKEN"/>
+      <add key="Username" value="%GITHUB_USERNAME%" />
+      <add key="ClearTextPassword" value="%GITHUB_ACCESS_TOKEN%" />
     </github-emptyscope>
+    <gitlab-rxlightning>
+      <add key="Username" value="%GITLAB_USERNAME%" />
+      <add key="ClearTextPassword" value="%GITLAB_ACCESS_TOKEN%" />
+    </gitlab-rxlightning>
     <gitlab-emptyscope>
-      <add key="Username" value="$GITLAB_USERNAME"/>
-      <add key="ClearTextPassword" value="$GITLAB_ACCESS_TOKEN"/>
+      <add key="Username" value="%GITLAB_USERNAME%" />
+      <add key="ClearTextPassword" value="%GITLAB_ACCESS_TOKEN%" />
     </gitlab-emptyscope>
   </packageSourceCredentials>
 
