@@ -32,10 +32,12 @@ docker run -d \
 docker run -d \
     --name redis \
     --restart always \
+    --save 60 1 \
+    --loglevel warning \
     -p 6379:6379 \
     -v redis-data:/data \
     --network local-network \
-    redis:alpine
+    redis:7.4.2-alpine
 
 # Start Azure SQL container
 # docker run -d \
@@ -54,11 +56,12 @@ docker run -d \
     --name mssql \
     --restart always \
     -p 1433:1433 \
+    -v mssql-data:/var/opt/mssql \
     --network local-network \
     -e "ACCEPT_EULA=Y" \
     -e "MSSQL_PID=Developer" \
     -e "MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD" \
-    mcr.microsoft.com/mssql/server:2019-latest
+    mcr.microsoft.com/mssql/server:2022-latest
 
 # Start Postgres container
 docker run -d \
@@ -66,11 +69,12 @@ docker run -d \
     --hostname postgres \
     --restart always \
     -p 5432:5432 \
-    -v postgres-data:/postgres \
+    -v postgres-data:/var/lib/postgresql/data \
     --network local-network \
+    -e POSTGRES_DB="dbo" \
     -e POSTGRES_USER="$POSTGRES_USER" \
     -e POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
-    postgres:alpine
+    postgres:17.4-alpine
 
 # Start RabbitMQ container
 docker run -d \
@@ -78,9 +82,9 @@ docker run -d \
     --restart always \
     -p 5672:5672 \
     -p 15672:15672 \
-    -v rabbitmq-data:/rabbitmq \
+    -v rabbitmq-data:/var/lib/rabbitmq \
     --network local-network \
     -e RABBITMQ_DEFAULT_VHOST=rabbitmq_vhost \
     -e RABBITMQ_DEFAULT_USER="$RABBITMQ_DEFAULT_USER" \
     -e RABBITMQ_DEFAULT_PASS="$RABBITMQ_DEFAULT_PASS" \
-    rabbitmq:management-alpine
+    rabbitmq:4.0.7-management-alpine
