@@ -64,6 +64,7 @@
 .gnupg/tofu.db
 .gnupg/trustdb.gpg
 !.gnupg/*.conf
+.gradle/
 .IdentityService/
 .jenv/
 .lesshst

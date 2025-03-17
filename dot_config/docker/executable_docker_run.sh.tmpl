@@ -39,18 +39,6 @@ docker run -d \
     --network local-network \
     redis:7.4.2-alpine
 
-# Start Azure SQL container
-# docker run -d \
-#     --name mssql \
-#     --restart always \
-#     -p 1433:1433 \
-#     --network local-network \
-#     -e "ACCEPT_EULA=Y" \
-#     -e "MSSQL_PID=Developer" \
-#     -e "MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD" \
-#     -e "MSSQL_SLEEP=7" \
-#     mcr.microsoft.com/azure-sql-edge:latest
-
 # Start MSSQL SQL container
 docker run -d \
     --name mssql \
