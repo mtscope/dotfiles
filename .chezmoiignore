@@ -76,6 +76,7 @@
 .me/*.pfx
 .me/private/
 .me/certificates/
+.microsoft/usersecrets/
 .msauth4j/
 .node_repl_history
 !.npm/.npmrc
