@@ -138,8 +138,11 @@ export npm_config_python="$PYENV_HOME/bin"
 export XCENV_DO_NOT_SHIM_LIST="git c++"
 export XCENV_HOME="$HOME/.xcenv"
 
+# Java
+echo 'JAVA_HOME=$(/usr/libexec/java_home -v $(jenv version-name))' >> ~/.mavenrc
+
 # Java.
-export JAVA_HOME="$HOME/.jenv"
+# export JAVA_HOME="$HOME/.jenv"
 
 # DotNet.
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#net-sdk-and-cli-environment-variables
