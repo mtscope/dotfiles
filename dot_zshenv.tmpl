@@ -3,7 +3,7 @@
 # .zshrc is for interactive shells. You set options for the interactive shell there with the setopt and unsetopt commands. You can also load shell modules, set your history options, change your prompt, set up zle and completion, et cetera. You also set any variables that are only used in the interactive shell (e.g. $LS_COLORS).
 # .zlogin is for login shells. It is sourced on the start of a login shell but after .zshrc, if the shell is also interactive. This file is often used to start X using startx. Some systems start X on boot, so this file is not always very useful.
 # .zlogout is sometimes used to clear and reset the terminal. It is called when exiting, not when opening.
-echo ".zshenv HOME: $HOME"
+# echo ".zshenv HOME: $HOME"
 
 # Locale.
 export LANG="en_US.UTF-8"
@@ -139,7 +139,7 @@ export XCENV_DO_NOT_SHIM_LIST="git c++"
 export XCENV_HOME="$HOME/.xcenv"
 
 # Java
-echo 'JAVA_HOME=$(/usr/libexec/java_home -v $(jenv version-name))' >> ~/.mavenrc
+export JAVA_HOME=$(/usr/libexec/java_home -v jenv version-name)
 
 # Java.
 # export JAVA_HOME="$HOME/.jenv"
