@@ -109,6 +109,9 @@ alias -s {md,yaml,yml}='open /Applications/Visual\ Studio\ Code.app'
 alias -- -='cd -' ...='cd ../..'
 alias -s log='tail -n10'
 
+# Azurite
+alias azrite="azurite -s -l $HOME/.azurite -d $HOME/azurite/logs/debug.log"
+
 # Repo
 alias r='repo'
 alias rra='repo rebase --auto-stash'
@@ -245,7 +248,8 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 # alias reload="sketchybar --reload || true; aerospace reload-config || true; exec ${SHELL} -l;"
-alias reload="aerospace reload-config; exec ${SHELL} -l;"
+alias reload="exec ${SHELL} -l;"
+alias aeroreload="aerospace reload-config;"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
