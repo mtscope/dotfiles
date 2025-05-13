@@ -310,6 +310,9 @@ alias foldersFirstDesktop='defaults write com.apple.finder "_FXSortFoldersFirstO
 alias disableExtensionWarning='defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "true" && killall Finder'
 alias plainTextDefault='defaults write com.apple.TextEdit "RichText" -bool "false" && killall TextEdit'
 
+alias ip='curl --ipv4 -s http://icanhazip.com/'
+alias update-ip="update-ip-address $DNSIMPLE_ME_TOKEN $DNSIMPLE_ME_ACCOUNT_ID $DNSIMPLE_ME_ZONE_ID $DNSIMPLE_ME_RECORD_ID $(ip)"
+
 # Duti
 # https://github.com/moretension/duti/
 # brew install duti

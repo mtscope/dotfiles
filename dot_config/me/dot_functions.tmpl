@@ -117,3 +117,32 @@ phpserver() {
 pythonserver() {
     python -m http.server 3999  --directory "$HOME/Public/wwwroot"
 }
+
+update-ip-address() {
+    if [[ -n $1 ]]; then
+        if [[ -n $2 ]]; then
+            if [[ -n $3 ]]; then
+                if [[ -n $4 ]]; then
+                    if [[ -n $5 ]]; then
+                        curl -H "Authorization: Bearer $1" \
+                            -H "Content-Type: application/json" \
+                            -H "Accept: application/json" \
+                            -X "PATCH" \
+                            -i "https://api.dnsimple.com/v2/$2/zones/$3/records/$4" \
+                            -d "{\"content\":\"$5\"}"
+                    else
+                        echo "ERROR: add ip v4 address argument"
+                    fi
+                else
+                    echo "ERROR: add an dns record argument"
+                fi
+            else
+                echo "ERROR: add an dns zone argument"
+            fi
+        else
+            echo "ERROR: add an dns account argument"
+        fi
+    else
+        echo "ERROR: add an dns auth argument"
+    fi
+}
