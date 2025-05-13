@@ -24,3 +24,6 @@ CMakeUserPresets.json
 /dot_gitpod-flex
 /private_dot_net
 /dot_azurite/AzuriteConfig.tmpl
+/private_dot_lima
+/dot_kube
+/dot_config/helm
