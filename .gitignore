@@ -27,3 +27,4 @@ CMakeUserPresets.json
 /private_dot_lima
 /dot_kube
 /dot_config/helm
+/dot_go
