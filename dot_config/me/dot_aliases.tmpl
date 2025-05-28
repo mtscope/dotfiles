@@ -276,8 +276,11 @@ alias gpg_public_rxlightning="gpg --export brad.allen@rxlightning.com > gpg_pub_
 
 # GPG export private
 alias gpg_private_me="gpg --export-secret-keys me@bradallen.me > gpg_private_me.asc"
+alias gpg_private_armor_me="gpg --output gpg_private_me.pgp --armor --export-secret-key me@bradallen.me"
 alias gpg_private_emptyscope="gpg --export-secret-keys brad.allen@emptyscope.com > gpg_private_emptyscope.asc"
+alias gpg_private_armor_emptyscope="gpg --output gpg_private_emptyscope.pgp --armor --export-secret-key brad.allen@emptyscope.com"
 alias gpg_private_rxlightning="gpg --export-secret-keys brad.allen@rxlightning.com > gpg_private_rxlightning.asc"
+alias gpg_private_armor_rxlightning="gpg --output gpg_private_rxlightning.pgp --armor --export-secret-key brad.allen@rxlightning.com"
 
 alias gpg_mail='gpg_mail() { gpg --auto-key-locate keyserver --locate-keys "$1"; }; gpg_mail'
 
