@@ -28,3 +28,4 @@ CMakeUserPresets.json
 /dot_kube
 /dot_config/helm
 /dot_go
+/dot_autorest
