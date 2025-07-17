@@ -123,10 +123,11 @@ export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 export RUSTUPPATH="$HOMEBREW_PATH/rustup"
 export PATH="$PATH:$RUSTUPPATH/bin"
 
-
 # NodeJs
 # export NODE_OPTIONS="--no-deprecation"
 # export NODE_OPTIONS="--openssl-legacy-provider"
+export NVM_DIR=/root/.nvm
+
 
 # Python
 export PYENV_HOME="$HOME/.pyenv"
@@ -138,11 +139,13 @@ export npm_config_python="$PYENV_HOME/bin"
 export XCENV_DO_NOT_SHIM_LIST="git c++"
 export XCENV_HOME="$HOME/.xcenv"
 
+
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home -v jenv version-name)
 
 # Java.
-# export JAVA_HOME="$HOME/.jenv"
+export JAVA_HOME="$HOME/.jenv"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 # DotNet.
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#net-sdk-and-cli-environment-variables
@@ -166,8 +169,8 @@ export DOTNET_ROOT_X64="/usr/local/share/dotnet/x64/dotnet"
 export DOTNET_HOME="$HOME/.dotnet"
 export DOTNET_HOME_TOOLS="$DOTNET_HOME/tools"
 
-export PATH="$PATH:$DOTNET_ROOT"
-export PATH="$PATH:$DOTNET_HOME_TOOLS"
+export PATH="$DOTNET_ROOT/:$PATH"
+export PATH="$DOTNET_HOME_TOOLS/:$PATH"
 
 # export COREHOST_TRACE=1
 export COREHOST_TRACEFILE="logs/traces/host_trace.txt"
